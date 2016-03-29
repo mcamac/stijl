@@ -15,23 +15,18 @@ const defaultStyle = {
   border: '0 solid black',
   margin: 0,
   padding: 0,
+  whiteSpace: 'pre-wrap',
 }
 
-const omitFunc = (value, name) => {
-  if (/^on/.test(name)) return true
-  if (name === 'id' ||
-    name === 'children' ||
-    name === 'className'
-  ) return true
-  return false
-}
+const propsToOmit = ['id', 'children', 'className', 'm']
 
 export const Col = (props) => {
   const actions = _.pickBy((value, name) => /^on/.test(name), props)
   const style = _.runFlow(
     props,
     _.assign(defaultStyle),
-    _.omitBy(omitFunc),
+    _.omitBy((value, name) => /^on/.test(name)),
+    _.omit(propsToOmit),
   )
 
   return <div
