@@ -8,6 +8,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import * as ui from './ui'
+import {defaultTheme as theme} from './defaultTheme'
 
 document.title = 'Project'
 
@@ -27,32 +28,20 @@ const Root = React.createClass({
   render() {
     return <ui.Window
       fontFamily='Open Sans'
-      fontSize='15'
+      fontSize={theme.size}
       flexDirection='row'
       justifyContent='center'
     >
-      <ui.Col
-        flexBasis='200'
-        // background='lightgray'
-        padding='5'
-      >
-        {/*<ui.Row alignItems='center'>
-          <ui.Col margin='5' >App</ui.Col><Button>Click</Button>
-        </ui.Row>*/}
-        <ui.Col
-          // border='3px solid hsl(0, 0%, 79%)'
-          borderRadius='5'
-          flexBasis='200'
-          background='hsl(0, 0%, 79%)'
-        >
-          <ui.Row
-            padding='12'
-            borderBottom='2px solid white'
-            alignItems='center'
-          >
-            App
-          </ui.Row>
-        </ui.Col>
+      <ui.Col flexBasis='600'>
+        <ui.H1><ui.A>Title</ui.A></ui.H1>
+        <ui.H5>{(new Date()).toString()}</ui.H5>
+        <ui.P>
+          Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</ui.A>
+        </ui.P>
+        <ui.H m={1.1}>Sub-Title</ui.H>
+        <ui.P>
+          Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there</ui.A> live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+        </ui.P>
       </ui.Col>
     </ui.Window>
   },
