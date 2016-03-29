@@ -12,5 +12,8 @@
   "license": "MIT",
   "devDependencies": {
     "bates": "^1.0.2"
+  },
+  "dependencies": {
+    "d3-color": "^0.4.2"
   }
 }
