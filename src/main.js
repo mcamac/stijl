@@ -10,19 +10,7 @@ import ReactDOM from 'react-dom'
 import * as ui from './ui'
 import {defaultTheme as theme} from './defaultTheme'
 
-document.title = 'Project'
-
-const Button = (props) =>
-  <ui.Col
-    fontWeight='bold'
-    color='steelblue'
-    cursor='pointer'
-    margin='5'
-    padding='5'
-    border='2px solid steelblue'
-    borderRadius='5'
-    {...props}
-  />
+document.title = 'stijl'
 
 const Root = React.createClass({
   render() {
@@ -37,7 +25,7 @@ const Root = React.createClass({
         <ui.P>
           Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there</ui.A> live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
         </ui.P>
-        <ui.Row>
+        <ui.Row alignItems='center'>
           <ui.Btn>Click</ui.Btn>
           <ui.Div
             width={theme.fontSize}
@@ -46,27 +34,53 @@ const Root = React.createClass({
             border='2px solid'
             borderColor={theme.action}
             borderRadius={10}
-            // background={theme.active}
           />
           <ui.T>Text</ui.T>
         </ui.Row>
-        <ui.Div // card
-          margin={theme.gutter}
-          background={theme.card}
-          padding={theme.gutter}
-          borderRadius={5}
-          // border='4px solid'
-        >
-          <ui.H3>Card</ui.H3>
+        <ui.Row flexWrap='wrap'>
+          <ui.Col // card
+            margin={theme.gutter}
+            background={theme.card}
+            padding={theme.gutter}
+            borderRadius={5}
+            flexBasis='250'
+            flexGrow='1'
+          >
+            <ui.H3>Card</ui.H3>
+            <ui.P>
+              Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there</ui.A> live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+            </ui.P>
+            <ui.P
+              borderTop='2px solid white'
+              borderRadius='0 0 5px 5px'
+            >SubText</ui.P>
+          </ui.Col>
+          <ui.Col // card
+            margin={theme.gutter}
+            background={theme.card}
+            padding={theme.gutter}
+            borderRadius={5}
+            flexBasis='250'
+            flexGrow='1'
+          >
+            <ui.H3>Card</ui.H3>
+            <ui.P>
+              Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there</ui.A> live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+            </ui.P>
+            <ui.P
+              borderTop='2px solid white'
+              borderRadius='0 0 5px 5px'
+            >SubText</ui.P>
+          </ui.Col>
+        </ui.Row>
+        <ui.Row>
           <ui.P>
-            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there</ui.A> live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
           </ui.P>
-          <ui.P
-            borderTop='2px solid white'
-            // background='white'
-            borderRadius='0 0 5px 5px'
-          >SubText</ui.P>
-        </ui.Div>
+          <ui.P>
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+          </ui.P>
+        </ui.Row>
       </ui.ColText>
     </ui.Window>
   },

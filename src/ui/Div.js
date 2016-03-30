@@ -10,7 +10,7 @@ const defaultStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'stretch',
-  flexShrink: 0,
+  flexShrink: 1,
   alignContent: 'flex-start',
 
   border: '0 solid black',
@@ -37,18 +37,10 @@ export const Div = (props) => {
   </div>
 }
 
-export const Col = React.createClass({
-  render() {
-    return <Div
-      flexShrink='1'
-      {...this.props}
-    />
-  },
-})
+export const Col = Div
 
 export const Row = (props) =>
   <Div
-    alignItems='center'
     flexDirection='row'
     {...props}
   />
@@ -57,7 +49,10 @@ export const ColText = React.createClass({
   mixins: [getTheme],
   render() {
     const theme = this.getTheme()
-    return <Row justifyContent='center'>
+    return <Row
+      justifyContent='center'
+      alignItems='flex-start'
+    >
       <Col
         paddingRight={theme.gutter}
         paddingLeft={theme.gutter}
