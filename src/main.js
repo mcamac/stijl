@@ -26,13 +26,8 @@ const Button = (props) =>
 
 const Root = React.createClass({
   render() {
-    return <ui.Window
-      fontFamily='Open Sans'
-      fontSize={theme.size}
-      flexDirection='row'
-      justifyContent='center'
-    >
-      <ui.Col flexBasis='600'>
+    return <ui.Window>
+      <ui.ColText>
         <ui.H1><ui.A>Title</ui.A></ui.H1>
         <ui.H5>{(new Date()).toString()}</ui.H5>
         <ui.P>
@@ -42,7 +37,37 @@ const Root = React.createClass({
         <ui.P>
           Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there</ui.A> live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
         </ui.P>
-      </ui.Col>
+        <ui.Row>
+          <ui.Btn>Click</ui.Btn>
+          <ui.Div
+            width={theme.fontSize}
+            height={theme.fontSize}
+            margin={theme.gutter}
+            border='2px solid'
+            borderColor={theme.action}
+            borderRadius={10}
+            // background={theme.active}
+          />
+          <ui.T>Text</ui.T>
+        </ui.Row>
+        <ui.Div // card
+          margin={theme.gutter}
+          background={theme.card}
+          padding={theme.gutter}
+          borderRadius={5}
+          // border='4px solid'
+        >
+          <ui.H3>Card</ui.H3>
+          <ui.P>
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there</ui.A> live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+          </ui.P>
+          <ui.P
+            borderTop='2px solid white'
+            // background='white'
+            borderRadius='0 0 5px 5px'
+          >SubText</ui.P>
+        </ui.Div>
+      </ui.ColText>
     </ui.Window>
   },
 })
