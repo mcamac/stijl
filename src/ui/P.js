@@ -19,10 +19,10 @@ export const H = React.createClass({
   },
   render() {
     const theme = this.getTheme()
-    const size = Math.pow(this.props.m, 2.2) * theme.size
+    const size = Math.pow(this.props.m, 2.2) * theme.fontSize
     const color = d3Color(theme.text)
     if (this.props.m < 1) color.opacity = 0.7
-    return <ui.Col
+    return <ui.Div
       fontSize={size}
       padding={theme.gutter}
       paddingBottom={size / 5}
@@ -62,10 +62,31 @@ export const P = React.createClass({
   },
   render() {
     const theme = this.getTheme()
-    return <ui.Col
+    return <ui.Div
       padding={theme.gutter}
       display='inline'
       lineHeight={theme.lineHeight}
+      {...this.props}
+    />
+  },
+})
+
+export const T = React.createClass({
+  getInitialState() {
+    return {}
+  },
+  contextTypes: {
+    theme: React.PropTypes.object,
+  },
+  getTheme() {
+    return this.props.theme || this.context.theme || defaultTheme
+  },
+  render() {
+    const theme = this.getTheme()
+    return <ui.Div
+      // paddingLeft={theme.gutter}
+      // paddingRight={theme.gutter}
+      display='inline'
       {...this.props}
     />
   },
