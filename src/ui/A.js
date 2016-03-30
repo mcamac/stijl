@@ -34,23 +34,23 @@ export const A = React.createClass({
     const theme = this.getTheme()
     if (this.state.active) {
       const background = color(theme.active)
-      background.opacity = 0.15
+      background.opacity = 0.1
       return background
     }
     if (this.state.hover) {
-      const background = color(theme.link)
-      background.opacity = 0.15
+      const background = color(theme.action)
+      background.opacity = 0.1
       return background
     }
     return undefined
   },
   render() {
     const theme = this.getTheme()
-    return <ui.Col
+    return <ui.Div
       background={this.getBackground()}
       cursor='pointer'
       display='inline'
-      color={theme.link}
+      color={theme.action}
       {...this.props}
       onMouseLeave={this.handleLeave}
       onMouseEnter={this.handleEnter}
