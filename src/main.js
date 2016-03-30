@@ -35,7 +35,7 @@ const Root = React.createClass({
             borderColor={theme.action}
             borderRadius={10}
           />
-          <ui.T>Text</ui.T>
+          <ui.Inline>Text</ui.Inline>
         </ui.Row>
         <ui.Row flexWrap='wrap'>
           <ui.Col // card
