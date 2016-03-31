@@ -16,7 +16,11 @@ const defaultStyle = {
   padding: 0,
 }
 
-const propsToOmit = ['id', 'children', 'className', 'href', 'src', 'm', 'full']
+const propsToOmit = [
+  'id', 'children', 'className',
+  'href', 'src',
+  'm', 'full', 'flat', 'prime',
+]
 
 export const getStyle = {
   getActions() {

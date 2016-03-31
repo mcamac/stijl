@@ -26,12 +26,12 @@ export const A = React.createClass({
     const theme = this.getTheme()
     if (this.state.active) {
       const background = color(theme.active)
-      background.opacity = 0.1
+      background.opacity = 0.4
       return background
     }
     if (this.state.hover) {
       const background = color(theme.action)
-      background.opacity = 0.1
+      background.opacity = 0.2
       return background
     }
     return undefined

@@ -1,5 +1,5 @@
 
-const fontSize = 16
+const fontSize = 15
 
 export const defaultTheme = {
   fontSize,
@@ -7,6 +7,8 @@ export const defaultTheme = {
   gutter: fontSize * 0.5,
   textBasis: 600,
   fontFamily: 'Open Sans',
+
+  radius: 5,
 
   // colors
   background: 'hsl(0, 0%, 100%)',
