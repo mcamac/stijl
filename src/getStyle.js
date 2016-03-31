@@ -18,7 +18,7 @@ const defaultStyle = {
 
 const propsToOmit = [
   'id', 'children', 'className',
-  'href', 'src',
+  'href', 'src', 'contentEditable',
   'm', 'full', 'flat', 'prime',
 ]
 

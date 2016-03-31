@@ -9,7 +9,7 @@ export const H = React.createClass({
   render() {
     const theme = this.getTheme()
     const size = Math.pow(this.props.m, 2.2) * theme.fontSize
-    const color = d3Color(theme.text)
+    const color = d3Color(theme.color)
     if (this.props.m < 1) color.opacity = 0.7
     return <ui.Div
       padding={theme.gutter}

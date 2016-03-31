@@ -17,6 +17,7 @@ export const Div = React.createClass({
     const fontSize = this.getFontSize()
     return <div
       style={{...style, fontSize}}
+      contentEditable={props.contentEditable}
       {...actions}
     >
       {props.children}

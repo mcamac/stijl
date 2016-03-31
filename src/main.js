@@ -25,13 +25,18 @@ const Root = React.createClass({
         </ui.Row>
       </ui.ColText>
       <ui.ColText>
-        <ui.Row>
-          <ui.Button flat m={1.5}>Title</ui.Button>
-        </ui.Row>
+        <ui.H1>
+          <ui.A>Title</ui.A>
+        </ui.H1>
         <ui.H5>{(new Date()).toString()}</ui.H5>
         <ui.P>
           Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</ui.A>
         </ui.P>
+          <ui.P m={0.9} paddingBottom={0} opacity='0.5'>Name of the input</ui.P>
+          <ui.Input flexGrow='1'>Input 1</ui.Input>
+          <ui.P m={0.9} paddingBottom={0} opacity='0.5'>Name of the second input</ui.P>
+          <ui.Input flexGrow='1'>Input 2</ui.Input>
+          <ui.Button alignSelf='flex-start'>Run</ui.Button>
       </ui.ColText>
       <ui.ColImg>
         {/*<ui.Img full src='https://pbs.twimg.com/media/Ce0oTtnVAAAIjbi.jpg'/>*/}

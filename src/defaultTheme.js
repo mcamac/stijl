@@ -8,11 +8,12 @@ export const defaultTheme = {
   textBasis: 600,
   fontFamily: 'Open Sans',
 
-  radius: 5,
+  borderRadius: 5,
+  borderWidth: 2,
 
   // colors
   background: 'hsl(0, 0%, 100%)',
-  text: 'hsl(0, 0%, 0%)',
+  color: 'hsl(0, 0%, 0%)',
   action: 'hsl(197, 72%, 30%)',
   active: 'hsl(34, 67%, 49%)',
   card: 'hsl(0, 0%, 92%)',

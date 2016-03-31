@@ -10,6 +10,14 @@ export const A = React.createClass({
     this.setState({hover: true})
     if (this.props.onMouseEnter) this.props.onMouseEnter()
   },
+  handleTouchStart() {
+    this.setState({active: true})
+    if (this.props.onTouchStart) this.props.onTouchStart()
+  },
+  handleTouchEnd() {
+    this.setState({active: false})
+    if (this.props.onTouchEnd) this.props.onTouchEnd()
+  },
   handleLeave() {
     this.setState({hover: false})
     if (this.props.onMouseLeave) this.props.onMouseLeave()
@@ -19,7 +27,7 @@ export const A = React.createClass({
     if (this.props.onMouseDown) this.props.onMouseDown()
   },
   handleUp() {
-    this.setState({active: false})
+    this.setState({active: false, hover: false})
     if (this.props.onMouseUp) this.props.onMouseUp()
   },
   getBackground() {
@@ -43,7 +51,10 @@ export const A = React.createClass({
       cursor='pointer'
       display='inline'
       color={theme.action}
+      WebkitTapHighlightColor='rgba(0,0,0,0)'
       {...this.props}
+      onTouchStart={this.handleTouchStart}
+      onTouchEnd={this.handleTouchEnd}
       onMouseLeave={this.handleLeave}
       onMouseEnter={this.handleEnter}
       onMouseDown={this.handleDown}
