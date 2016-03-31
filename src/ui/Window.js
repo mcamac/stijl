@@ -15,6 +15,9 @@ export const Window = React.createClass({
       right={0}
       top={0}
       WebkitOverflowScrolling='touch'
+      WebkitTextSizeAdjust='100%'
+      MozTextSizeAdjust='100%'
+      MsTextSizeAdjust='100%'
       fontFamily={theme.fontFamily}
       fontSize={theme.fontSize}
       {...this.props}

@@ -1,27 +1,10 @@
 
 import React from 'react'
-import _ from '../lodash'
 import {getTheme} from '../getTheme'
-
-const defaultStyle = {
-  boxSizing: 'border-box',
-  position: 'relative',
-
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'stretch',
-  flexShrink: 1,
-  alignContent: 'flex-start',
-
-  border: '0 solid black',
-  margin: 0,
-  padding: 0,
-}
-
-const propsToOmit = ['id', 'children', 'className', 'm']
+import {getStyle} from '../getStyle'
 
 export const Div = React.createClass({
-  mixins: [getTheme],
+  mixins: [getTheme, getStyle],
   getFontSize() {
     const theme = this.getTheme()
     if (this.props.m) return Math.pow(this.props.m, 2.2) * theme.fontSize
@@ -29,17 +12,11 @@ export const Div = React.createClass({
   },
   render() {
     const {props} = this
-    const actions = _.pickBy((value, name) => /^on/.test(name), props)
+    const actions = this.getActions()
+    const style = this.getStyle()
     const fontSize = this.getFontSize()
-    const style = _.runFlow(
-      props,
-      _.assign(defaultStyle),
-      _.assign({fontSize}),
-      _.omitBy((value, name) => /^on/.test(name)),
-      _.omit(propsToOmit),
-    )
     return <div
-      style={style}
+      style={{...style, fontSize}}
       {...actions}
     >
       {props.children}
@@ -66,6 +43,7 @@ export const ColText = React.createClass({
   render() {
     const theme = this.getTheme()
     return <Row
+      flexShrink='0'
       justifyContent='center'
       alignItems='flex-start'
     >
@@ -73,6 +51,23 @@ export const ColText = React.createClass({
         paddingRight={theme.gutter}
         paddingLeft={theme.gutter}
         flexBasis={theme.textBasis}
+        {...this.props}
+      />
+    </Row>
+  },
+})
+
+export const ColImg = React.createClass({
+  mixins: [getTheme],
+  render() {
+    const theme = this.getTheme()
+    return <Row
+      flexShrink='0'
+      justifyContent='center'
+      alignItems='flex-start'
+    >
+      <Col
+        flexBasis={theme.textBasis * 1.5}
         {...this.props}
       />
     </Row>

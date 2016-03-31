@@ -16,11 +16,25 @@ const Root = React.createClass({
   render() {
     return <ui.Window>
       <ui.ColText>
+        <ui.Row alignItems='center' justifyContent='space-between' paddingTop='8'>
+          <ui.BtnFlat m={1.2}>Main</ui.BtnFlat>
+          <ui.Row>
+            <ui.BtnFlat>Link 1</ui.BtnFlat>
+            <ui.BtnFlat>Link 2</ui.BtnFlat>
+          </ui.Row>
+        </ui.Row>
+      </ui.ColText>
+      <ui.ColText>
         <ui.H1><ui.A>Title</ui.A></ui.H1>
         <ui.H5>{(new Date()).toString()}</ui.H5>
         <ui.P>
           Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</ui.A>
         </ui.P>
+      </ui.ColText>
+      <ui.ColImg>
+        <ui.Img full src='https://pbs.twimg.com/media/Ce0oTtnVAAAIjbi.jpg'/>
+      </ui.ColImg>
+      <ui.ColText>
         <ui.H m={1.1}>Sub-Title</ui.H>
         <ui.P>
           Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there</ui.A> live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.

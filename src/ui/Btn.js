@@ -1,16 +1,11 @@
 
 import React from 'react'
 import * as ui from '../ui'
-import {defaultTheme} from '../defaultTheme'
 import {color} from 'd3-color'
+import {getTheme} from '../getTheme'
 
 export const Btn = React.createClass({
-  getInitialState() {
-    return {}
-  },
-  contextTypes: {
-    theme: React.PropTypes.object,
-  },
+  mixins: [getTheme],
   handleEnter() {
     this.setState({hover: true})
     if (this.props.onMouseEnter) this.props.onMouseEnter()
@@ -26,9 +21,6 @@ export const Btn = React.createClass({
   handleUp() {
     this.setState({active: false})
     if (this.props.onMouseUp) this.props.onMouseUp()
-  },
-  getTheme() {
-    return this.props.theme || this.context.theme || defaultTheme
   },
   getBackground() {
     const theme = this.getTheme()
@@ -66,3 +58,11 @@ export const Btn = React.createClass({
     />
   },
 })
+
+export const BtnFlat = (props) =>
+  <Btn
+    margin='0'
+    border={undefined}
+    borderRadius='0'
+    {...props}
+  />
