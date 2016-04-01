@@ -26,7 +26,7 @@ const Root = React.createClass({
       </ui.ColText>
       <ui.ColText>
       <ui.H1>
-      <ui.A>Title</ui.A>
+        Title
       </ui.H1>
       </ui.ColText>
       <ui.ColText>
@@ -49,7 +49,7 @@ const Root = React.createClass({
           <ui.Button marginRight={0}>Click</ui.Button>
           <ui.Button prime>Click</ui.Button>
           <ui.Button flat>Click</ui.Button>
-          <ui.Div
+          <ui.Div // select
             width={theme.fontSize}
             height={theme.fontSize}
             margin={theme.gutter}
@@ -64,7 +64,6 @@ const Root = React.createClass({
             margin={theme.gutter}
             background={theme.card}
             padding={theme.gutter}
-            borderRadius={5}
             flexBasis='250'
             flexGrow='1'
           >
@@ -78,7 +77,6 @@ const Root = React.createClass({
             margin={theme.gutter}
             background={theme.card}
             padding={theme.gutter}
-            borderRadius={5}
             flexBasis='250'
             flexGrow='1'
           >

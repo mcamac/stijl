@@ -8,7 +8,7 @@ export const defaultTheme = {
   textBasis: 600,
   fontFamily: 'Open Sans',
 
-  borderRadius: 5,
+  borderRadius: 0,
   borderWidth: 2,
 
   // colors
@@ -17,4 +17,5 @@ export const defaultTheme = {
   action: 'hsl(197, 72%, 30%)',
   active: 'hsl(34, 67%, 49%)',
   card: 'hsl(0, 0%, 92%)',
+  borderColor: 'hsl(0, 0%, 70%)',
 }
