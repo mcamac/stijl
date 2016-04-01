@@ -1,9 +1,10 @@
 
 import React from 'react'
 import {getStyle} from '../getStyle'
+import {getTheme} from '../getTheme'
 
 export const ContentEditable = React.createClass({
-  mixins: [getStyle],
+  mixins: [getStyle, getTheme],
   getInitialState() {
     return {}
   },
@@ -60,6 +61,7 @@ export const ContentEditable = React.createClass({
   render() {
     const actions = this.getActions()
     const style = this.getStyle()
+    const theme = this.getTheme()
     return <div
       {...actions}
       contentEditable
@@ -75,6 +77,8 @@ export const ContentEditable = React.createClass({
         outline: 'none',
         cursor: 'text',
         wordBreak: 'break-all',
+        paddingTop: theme.gutter / 2,
+        paddingBottom: theme.gutter / 2,
       }}
     />
   },

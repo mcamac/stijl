@@ -38,7 +38,8 @@ const Root = React.createClass({
           <ui.P m={0.9} paddingBottom={0} opacity='0.5'>Name of the input</ui.P>
           <ui.Input placeholder='placeholder'/>
           <ui.P m={0.9} paddingBottom={0} opacity='0.5'>Name of the second input</ui.P>
-          <ui.Input flexGrow='1'>Input 2</ui.Input>
+          <ui.Input/>
+          <ui.Select placeholder='select'>Select 2</ui.Select>
           <ui.Button alignSelf='flex-start'>Run</ui.Button>
         <ui.H3>Sub-Title</ui.H3>
         <ui.P>

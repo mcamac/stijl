@@ -63,21 +63,19 @@ export const Input = React.createClass({
       background={this.getBackground()}
       borderBottom='2px solid'
       borderColor={this.getBorderColor()}
-      paddingTop={theme.gutter / 2}
-      paddingBottom={theme.gutter / 2}
       margin={theme.gutter}
-      onFocus={this.handleFocus}
-      onTouchStart={this.handleTouchStart}
-      onTouchEnd={this.handleTouchEnd}
-      onMouseLeave={this.handleLeave}
-      onMouseEnter={this.handleEnter}
-      onMouseDown={this.handleDown}
-      onMouseUp={this.handleUp}
-      onBlur={this.handleBlur}
     >
       <ui.ContentEditable
         WebkitTapHighlightColor='rgba(0,0,0,0)'
         {...this.props}
+        onFocus={this.handleFocus}
+        onTouchStart={this.handleTouchStart}
+        onTouchEnd={this.handleTouchEnd}
+        onMouseLeave={this.handleLeave}
+        onMouseEnter={this.handleEnter}
+        onMouseDown={this.handleDown}
+        onMouseUp={this.handleUp}
+        onBlur={this.handleBlur}
       />
     </ui.Div>
   },
