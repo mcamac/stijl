@@ -9,13 +9,11 @@ export const ContentEditable = React.createClass({
   },
   componentDidUpdate() {
     if (!this.node) return
-    const {props, state, node} = this
-    if (this.props.value !== node.innerText) {
-      node.innerText = props.value || state.value || ''
-    }
+    this.node.innerText = this.getInnerHTML()
   },
   handleBlur(evt) {
     this.setNewValue()
+    this.setState({active: false})
     if (this.props.onBlur) this.props.onBlur(evt)
   },
   handleInput(evt) {
@@ -31,6 +29,10 @@ export const ContentEditable = React.createClass({
     }
     if (this.props.onKeyDown) this.props.onKeyDown(evt)
   },
+  handleFocus(evt) {
+    this.setState({active: true})
+    if (this.props.onFocus) this.props.onFocus(evt)
+  },
   setNewValue() {
     if (!this.node) return
     const {props} = this
@@ -41,18 +43,35 @@ export const ContentEditable = React.createClass({
       this.setState({value})
     }
   },
+  getExtraStyle() {
+    if (!this.props.value && !this.state.value) {
+      return {
+        opacity: 0.5,
+        fontStyle: 'italic',
+      }
+    }
+    return {}
+  },
+  getInnerHTML() {
+    const {props, state} = this
+    if (state.active) return props.value || state.value || ''
+    return props.value || state.value || props.placeholder || ''
+  },
   render() {
     const actions = this.getActions()
     const style = this.getStyle()
     return <div
       {...actions}
       contentEditable
+      dangerouslySetInnerHTML={{__html: this.getInnerHTML()}}
+      onFocus={this.handleFocus}
       onBlur={this.handleBlur}
       onInput={this.handleInput}
       onKeyDown={this.handleKeyDown}
       ref={(node) => {this.node = node}}
       style={{
         ...style,
+        ...this.getExtraStyle(),
         outline: 'none',
         cursor: 'text',
         wordBreak: 'break-all',

@@ -30,6 +30,10 @@ export const Input = React.createClass({
     this.setState({hover: false})
     if (this.props.onMouseUp) this.props.onMouseUp()
   },
+  handleFocus() {
+    this.setState({active: true})
+    if (this.props.onFocus) this.props.onFocus()
+  },
   handleBlur() {
     this.setState({active: false})
     if (this.props.onBlur) this.props.onBlur()
@@ -55,15 +59,14 @@ export const Input = React.createClass({
   },
   render() {
     const theme = this.getTheme()
-    return <ui.ContentEditable
+    return <ui.Div
       background={this.getBackground()}
       borderBottom='2px solid'
       borderColor={this.getBorderColor()}
       paddingTop={theme.gutter / 2}
       paddingBottom={theme.gutter / 2}
       margin={theme.gutter}
-      WebkitTapHighlightColor='rgba(0,0,0,0)'
-      {...this.props}
+      onFocus={this.handleFocus}
       onTouchStart={this.handleTouchStart}
       onTouchEnd={this.handleTouchEnd}
       onMouseLeave={this.handleLeave}
@@ -71,6 +74,11 @@ export const Input = React.createClass({
       onMouseDown={this.handleDown}
       onMouseUp={this.handleUp}
       onBlur={this.handleBlur}
-    />
+    >
+      <ui.ContentEditable
+        WebkitTapHighlightColor='rgba(0,0,0,0)'
+        {...this.props}
+      />
+    </ui.Div>
   },
 })
