@@ -55,17 +55,13 @@ export const Input = React.createClass({
   },
   render() {
     const theme = this.getTheme()
-    return <ui.Div
+    return <ui.ContentEditable
       background={this.getBackground()}
-      cursor='text'
       borderBottom='2px solid'
       borderColor={this.getBorderColor()}
       paddingTop={theme.gutter / 2}
       paddingBottom={theme.gutter / 2}
       margin={theme.gutter}
-      minHeight={theme.size * theme.lineHeight}
-      contentEditable
-      outline='none'
       WebkitTapHighlightColor='rgba(0,0,0,0)'
       {...this.props}
       onTouchStart={this.handleTouchStart}

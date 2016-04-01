@@ -12,6 +12,7 @@ export const Img = React.createClass({
     const style = this.getStyle()
 
     return <div
+      {...actions}
       style={{
         ...style,
         marginRight: props.full ? 0 : theme.gutter,
@@ -22,7 +23,6 @@ export const Img = React.createClass({
         style={{
           width: '100%',
         }}
-        {...actions}
         src={props.src}
       />
     </div>

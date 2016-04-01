@@ -25,23 +25,21 @@ const Root = React.createClass({
         </ui.Row>
       </ui.ColText>
       <ui.ColText>
-        <ui.H1>
-          <ui.A>Title</ui.A>
-        </ui.H1>
+      <ui.H1>
+      <ui.A>Title</ui.A>
+      </ui.H1>
+      </ui.ColText>
+      <ui.ColText>
         <ui.H5>{(new Date()).toString()}</ui.H5>
         <ui.P>
           Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</ui.A>
         </ui.P>
+          <ui.ContentEditable/>
           <ui.P m={0.9} paddingBottom={0} opacity='0.5'>Name of the input</ui.P>
-          <ui.Input flexGrow='1'>Input 1</ui.Input>
+          <ui.Input flexGrow='1'>Input 1 ▾</ui.Input>
           <ui.P m={0.9} paddingBottom={0} opacity='0.5'>Name of the second input</ui.P>
           <ui.Input flexGrow='1'>Input 2</ui.Input>
           <ui.Button alignSelf='flex-start'>Run</ui.Button>
-      </ui.ColText>
-      <ui.ColImg>
-        {/*<ui.Img full src='https://pbs.twimg.com/media/Ce0oTtnVAAAIjbi.jpg'/>*/}
-      </ui.ColImg>
-      <ui.ColText>
         <ui.H3>Sub-Title</ui.H3>
         <ui.P>
           Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there</ui.A> live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
@@ -83,7 +81,8 @@ const Root = React.createClass({
             flexBasis='250'
             flexGrow='1'
           >
-            <ui.Text m={1.2}>Card</ui.Text>
+            <ui.H3>Card</ui.H3>
+            <ui.Img src='https://pbs.twimg.com/media/Ce0oTtnVAAAIjbi.jpg'/>
             <ui.P>
               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there</ui.A> live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
             </ui.P>
