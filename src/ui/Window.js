@@ -20,6 +20,8 @@ export const Window = React.createClass({
       MsTextSizeAdjust='100%'
       fontFamily={theme.fontFamily}
       fontSize={theme.fontSize}
+      background={theme.background}
+      color={theme.color}
       {...this.props}
     />
   },

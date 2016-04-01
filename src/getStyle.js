@@ -11,7 +11,7 @@ const defaultStyle = {
   flexShrink: 1,
   alignContent: 'flex-start',
 
-  border: '0 solid black',
+  border: '0 solid',
   margin: 0,
   padding: 0,
 }

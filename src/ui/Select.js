@@ -86,18 +86,20 @@ export const Select = React.createClass({
         color={theme.action}
       >▾</ui.Div>
       {this.state.active ? <ui.Col
-        background={theme.card}
+        background={theme.popOver.background}
+        color={theme.popOver.color}
         position='absolute'
         width='100%'
         left='0'
-        top='calc(100%)'
+        top='100%'
         zIndex='10'
-        border={`${theme.borderWidth}px solid`}
-        borderColor={theme.borderColor}
+        // border={`${theme.borderWidth}px solid`}
+        // boxShadow={`2px 2px 0px hsla(0, 0%, 90%, 0.5)`}
+        // borderColor={theme.borderColor}
       >
-        <ui.Button flat>Option 1</ui.Button>
-        <ui.Button flat>Option 2</ui.Button>
-        <ui.Button flat>Option 3</ui.Button>
+        <ui.Button theme={theme.popOver} flat>Option 1</ui.Button>
+        <ui.Button theme={theme.popOver} flat>Option 2</ui.Button>
+        <ui.Button theme={theme.popOver} flat>Option 3</ui.Button>
       </ui.Col> : undefined}
     </ui.Row>
   },

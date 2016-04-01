@@ -8,11 +8,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import * as ui from './ui'
-import {defaultTheme as theme} from './defaultTheme'
+import {defaultTheme, blackTheme} from './defaultTheme'
+const theme = blackTheme
 
 document.title = 'stijl'
 
 const Root = React.createClass({
+  childContextTypes: {
+    theme: React.PropTypes.object,
+  },
+  getChildContext: function() {
+    return {theme};
+  },
   render() {
     return <ui.Window>
       <ui.ColText>
@@ -39,7 +46,7 @@ const Root = React.createClass({
           <ui.Input placeholder='placeholder'/>
           <ui.P m={0.9} paddingBottom={0} opacity='0.5'>Name of the second input</ui.P>
           <ui.Input/>
-          <ui.Select placeholder='select'>Select 2</ui.Select>
+          <ui.Select placeholder='select' />
           <ui.Button alignSelf='flex-start'>Run</ui.Button>
         <ui.H3>Sub-Title</ui.H3>
         <ui.P>
