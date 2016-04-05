@@ -41,7 +41,7 @@ export const blackTheme = {
   background: 'hsl(0, 0%, 15%)',
   color: 'hsl(0, 0%, 90%)',
   action: 'hsl(197, 72%, 60%)',
-  active: 'hsl(34, 67%, 49%)',
+  active: 'hsl(34, 67%, 60%)',
   card: 'hsl(0, 0%, 25%)',
 
   popOver: {

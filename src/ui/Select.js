@@ -3,6 +3,7 @@ import React from 'react'
 import * as ui from '../ui'
 import {color as d3Color} from 'd3-color'
 import {getTheme} from '../getTheme'
+import _ from '../lodash'
 
 export const Select = React.createClass({
   mixins: [getTheme],
@@ -37,6 +38,9 @@ export const Select = React.createClass({
   handleBlur() {
     this.setState({active: false})
     if (this.props.onBlur) this.props.onBlur()
+  },
+  handleClick() {
+    
   },
   getBackground() {
     const theme = this.getTheme()
@@ -93,13 +97,18 @@ export const Select = React.createClass({
         left='0'
         top='100%'
         zIndex='10'
-        // border={`${theme.borderWidth}px solid`}
-        // boxShadow={`2px 2px 0px hsla(0, 0%, 90%, 0.5)`}
-        // borderColor={theme.borderColor}
       >
-        <ui.Button theme={theme.popOver} flat>Option 1</ui.Button>
-        <ui.Button theme={theme.popOver} flat>Option 2</ui.Button>
-        <ui.Button theme={theme.popOver} flat>Option 3</ui.Button>
+        {_.map(
+          (d, i) => <ui.Button
+            key={i}
+            theme={theme.popOver}
+            flat
+            onClick={this.handleClick}
+          >
+            {d.label}
+          </ui.Button>,
+          this.props.options,
+        )}
       </ui.Col> : undefined}
     </ui.Row>
   },
