@@ -5,7 +5,13 @@ import {color as d3Color} from 'd3-color'
 import {getTheme} from '../getTheme'
 import _ from '../lodash'
 
-export const Select = React.createClass({
+export const Select = (props) =>
+  <ui.Div
+    name='Input'
+    {...props}
+  />
+
+export const _Select = React.createClass({
   mixins: [getTheme],
   handleEnter() {
     this.setState({hover: true})
@@ -40,17 +46,17 @@ export const Select = React.createClass({
     if (this.props.onBlur) this.props.onBlur()
   },
   handleClick() {
-    
+
   },
   getBackground() {
     const theme = this.getTheme()
     if (this.state.active) {
-      const background = d3Color(theme.active)
+      const background = d3Color(theme.active || 'white')
       background.opacity = 0.2
       return background
     }
     if (this.state.hover) {
-      const background = d3Color(theme.action)
+      const background = d3Color(theme.action || 'white')
       background.opacity = 0.2
       return background
     }

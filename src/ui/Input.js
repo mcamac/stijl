@@ -4,7 +4,15 @@ import * as ui from '../ui'
 import {color as d3Color} from 'd3-color'
 import {getTheme} from '../getTheme'
 
-export const Input = React.createClass({
+export const Input = (props) =>
+  <ui.Div
+    name='Input'
+    {...props}
+  >
+    <ui.ContentEditable/>
+  </ui.Div>
+
+export const _Input = React.createClass({
   mixins: [getTheme],
   handleEnter() {
     this.setState({hover: true})
@@ -41,12 +49,12 @@ export const Input = React.createClass({
   getBackground() {
     const theme = this.getTheme()
     if (this.state.active) {
-      const background = d3Color(theme.active)
+      const background = d3Color(theme.active || 'white')
       background.opacity = 0.2
       return background
     }
     if (this.state.hover) {
-      const background = d3Color(theme.action)
+      const background = d3Color(theme.action || 'white')
       background.opacity = 0.2
       return background
     }

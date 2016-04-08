@@ -2,10 +2,8 @@
 import React from 'react'
 import * as ui from '../ui'
 
-export const A = (props) =>
+export const Card = (props) =>
   <ui.Div
-    name='A'
-    display='inline'
-    cursor='pointer'
+    name='Card'
     {...props}
   />

@@ -15,13 +15,14 @@ export const Img = React.createClass({
       {...actions}
       style={{
         ...style,
-        marginRight: props.full ? 0 : theme.gutter,
-        marginLeft: props.full ? 0 : theme.gutter,
+        // marginRight: props.full ? 0 : theme.gutter,
+        // marginLeft: props.full ? 0 : theme.gutter,
       }}
     >
       <img
         style={{
           width: '100%',
+          display: 'block',
         }}
         src={props.src}
       />
