@@ -1,13 +1,10 @@
 
 import c from 'tinycolor2'
 
-const fontSize = 16
-const fontRatio = 1.333
-
-const initial = {
-  fontRatio,
-  fontSize,
-  gutter: fontSize,
+const white = {
+  fontSize: 16,
+  fontRatio: 1.3,
+  gutter: 20,
   textBasis: 650,
   fontFamily: 'Inconsolata',
   color: 'black',
@@ -20,32 +17,48 @@ const initial = {
   lineHeight: 1.2,
 }
 
+const black = {
+  fontSize: 15,
+  fontRatio: 1.333,
+  gutter: 15,
+  textBasis: 750,
+  fontFamily: 'Open Sans',
+  color: '#eee',
+  background: '#242426',
+  hover: '#50afc6',
+  focus: 'hsl(50, 90%, 55%)',
+  borderWidth: 2,
+  borderRadius: 0,
+  card: '#313335',
+  lineHeight: 1.4,
+}
+
 const getHStyle = (size, sDefault) => ({
   fontSize: size,
   marginTop: size / 2,
   marginBottom: sDefault / 2,
 })
 
-const getDefaultTheme = (input = initial) => {
+const getDefaultTheme = (base = white) => {
   const s = {
-    s1: input.fontSize * Math.pow(input.fontRatio, 3),
-    s2: input.fontSize * Math.pow(input.fontRatio, 2),
-    s3: input.fontSize * Math.pow(input.fontRatio, 1),
-    s4: input.fontSize,
-    s5: input.fontSize / Math.pow(input.fontRatio, 1),
-    s6: input.fontSize / Math.pow(input.fontRatio, 2),
+    s1: base.fontSize * Math.pow(base.fontRatio, 3),
+    s2: base.fontSize * Math.pow(base.fontRatio, 2),
+    s3: base.fontSize * Math.pow(base.fontRatio, 1),
+    s4: base.fontSize,
+    s5: base.fontSize / Math.pow(base.fontRatio, 1),
+    s6: base.fontSize / Math.pow(base.fontRatio, 2),
   }
-  const theme = {s}
+  const theme = {s, base}
   theme.Window = {
-    background: input.background,
+    background: base.background,
   }
   theme.Col = {
-    paddingLeft: input.gutter / 2,
-    paddingRight: input.gutter / 2,
+    paddingLeft: base.gutter / 2,
+    paddingRight: base.gutter / 2,
   }
   theme.ColWrapper = {
-    marginLeft: -input.gutter / 2,
-    marginRight: -input.gutter / 2,
+    marginLeft: -base.gutter / 2,
+    marginRight: -base.gutter / 2,
     flexDirection: 'row',
   }
   theme.ContainerRow = {
@@ -56,34 +69,34 @@ const getDefaultTheme = (input = initial) => {
   }
   theme.ContainerCol = {
     flexGrow: 1,
-    paddingLeft: input.gutter,
-    paddingRight: input.gutter,
+    paddingLeft: base.gutter,
+    paddingRight: base.gutter,
   }
   theme.ContainerColText = {
     ...theme.ContainerCol,
     flexGrow: 0,
-    flexBasis: input.textBasis,
+    flexBasis: base.textBasis,
   }
   theme.Text = theme.Inline = {
     fontSize: s.s4,
-    color: input.color,
-    fontFamily: input.fontFamily,
+    color: base.color,
+    fontFamily: base.fontFamily,
   }
   theme.P = {
     ...theme.Inline,
     marginTop: s.s4 / 2,
     marginBottom: s.s4 / 2,
-    lineHeight: input.lineHeight,
+    lineHeight: base.lineHeight,
   }
   theme.A = {
     ...theme.Inline,
-    color: input.hover,
+    color: base.hover,
     WebkitTapHighlightColor: 'rgba(0,0,0,0)',
     hover: {
-      background: c(input.hover).setAlpha(0.15),
+      background: c(base.hover).setAlpha(0.15),
     },
     active: {
-      background: c(input.hover).setAlpha(0.3).darken(20),
+      background: c(base.hover).setAlpha(0.3).darken(20),
     },
   }
   theme.H1 = {
@@ -113,65 +126,75 @@ const getDefaultTheme = (input = initial) => {
   theme.Button = {
     ...theme.Text,
     cursor: 'pointer',
-    borderRadius: input.borderRadius,
-    borderWidth: input.borderWidth,
-    borderColor: input.hover,
-    color: input.hover,
+    borderRadius: base.borderRadius,
+    borderWidth: base.borderWidth,
+    borderColor: base.hover,
+    color: base.hover,
     fontWeight: 'bold',
     padding: s.s4 / 2,
     paddingTop: s.s4 / 4,
     paddingBottom: s.s4 / 4,
     marginRight: s.s4 / 4,
-    // marginTop: s.s4 / 2,
-    // marginBottom: s.s4 / 2,
     hover: theme.A.hover,
     active: theme.A.active,
   }
   theme.ButtonFlat = {
     ...theme.Text,
     cursor: 'pointer',
-    borderRadius: input.borderRadius,
-    color: input.hover,
+    borderRadius: base.borderRadius,
+    color: base.hover,
     fontWeight: 'bold',
     paddingTop: s.s4 / 4,
     paddingBottom: s.s4 / 4,
     marginRight: s.s4 / 4,
-    // marginTop: s.s4 / 2,
-    // marginBottom: s.s4 / 2,
     hover: theme.A.hover,
     active: theme.A.active,
   }
   theme.ButtonPrime = {
     ...theme.Button,
-    background: input.hover,
-    color: input.background,
+    background: base.hover,
+    color: base.background,
     hover: {
-      background: c(input.hover).setAlpha(0.8).darken(10),
+      background: c(base.hover).setAlpha(0.8).darken(10),
     },
     active: {
-      background: c(input.hover).setAlpha(0.8).lighten(10),
+      background: c(base.hover).setAlpha(0.8).lighten(10),
     },
   }
   theme.Card = {
-    margin: input.gutter / 2,
+    margin: base.gutter / 2,
     marginTop: s.s4 / 2,
     marginBottom: s.s4 / 2,
-    background: input.card,
-    color: input.color,
-    borderRadius: input.borderRadius,
+    background: base.card,
+    color: base.color,
+    borderRadius: base.borderRadius,
     flexGrow: 1,
   }
   theme.Input = {
     ...theme.Button,
-    color: input.color,
+    color: base.color,
     marginTop: s.s4 / 2,
     marginBottom: s.s4 / 2,
     fontWeight: 'normal',
     focus: {
-      background: c(input.focus).setAlpha(0.2),
+      background: c(base.focus).setAlpha(0.2),
+      borderColor: base.focus,
     },
+  }
+  theme.Select = {
+    ...theme.Input,
+  }
+  theme.SelectMenu = {
+    ...theme.Input,
+    background: c(base.card).setAlpha(0.95),
+    borderTopWidth: 0,
+    margin: 0,
+    marginTop: 0,
+    hover: {},
+    active: {},
   }
   return theme
 }
 
 export const defaultTheme = getDefaultTheme()
+export const blackTheme = getDefaultTheme(black)

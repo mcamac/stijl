@@ -8,46 +8,50 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import * as ui from './ui'
-import {defaultTheme} from './defaultTheme'
+import {defaultTheme, blackTheme} from './defaultTheme'
 const theme = defaultTheme
 
 document.title = 'stijl'
 
 const options = [
-  {value: 'option1', label: 'option1'},
-  {value: 'option2', label: 'option2'},
-  {value: 'option3', label: 'option3'},
+  'option1',
+  'option2',
+  'option3',
 ]
 
 const Root = React.createClass({
+  getInitialState() {
+    return {
+      theme,
+    }
+  },
   childContextTypes: {
     theme: React.PropTypes.object,
   },
   getChildContext() {
-    return {theme}
+    return {theme: this.state.theme}
   },
-  getInitialState() {
-    return {}
+  handleClick(value) {
+    this.setState({theme: value})
   },
-  handleChange(value) {
-    this.setState({value})
+  handleSelect(value) {
+    this.setState({selected: value})
   },
   render() {
     return <ui.Window>
-      <ui.Container text>
+      <ui.Container background={this.state.theme.base.card}>
         <ui.Shh/>
         <ui.Row
-          alignItems='center'
+          alignItems='stretch'
           justifyContent='space-between'
         >
           <ui.ButtonFlat s='2' value='Main'/>
-          <ui.Row>
-            <ui.ButtonFlat value='Link 1'/>
-            <ui.ButtonFlat value='Link 2'/>
+          <ui.Row alignItems='center'>
+            <ui.ButtonFlat value='Theme 1' onClick={() => this.handleClick(theme)}/><ui.Swh/>
+            <ui.ButtonFlat value='Theme 2' onClick={() => this.handleClick(blackTheme)}/>
           </ui.Row>
         </ui.Row>
         <ui.Shh/>
-        <ui.Div borderBottom='2px solid black'/>
       </ui.Container>
       <ui.Container text>
       <ui.H1>
@@ -59,11 +63,16 @@ const Root = React.createClass({
         <ui.P>
           Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</ui.A>
         </ui.P>
-          <ui.P s='5' marginTop={0} marginBottom={0} opacity='0.5'>Name of the input</ui.P>
+          <ui.P s='5' marginTop={0} opacity='0.5'>Name of the input</ui.P>
           <ui.Input placeholder='placeholder' marginTop='0'/>
-          <ui.P s='5' marginTop={0} marginBottom={0} opacity='0.5'>Name of the second input</ui.P>
+          <ui.P s='5' marginTop={0} opacity='0.5'>Name of the second input</ui.P>
           <ui.Input marginTop='0'/>
-          {/*<ui.Select placeholder='select' options={options}/>*/}
+          <ui.Select
+            placeholder='select'
+            options={options}
+            value={this.state.selected}
+            onChange={this.handleSelect}
+          />
           <ui.ButtonPrime alignSelf='flex-start' value='Run'/>
         <ui.H3>Sub-Title</ui.H3>
         <ui.P>
@@ -75,13 +84,14 @@ const Root = React.createClass({
         </ui.Row>
         <ui.ColWrapper flexWrap='wrap'>
           <ui.Card flexBasis='250'>
-            <ui.Container borderBottom='2px solid white'>
+            <ui.Container>
               <ui.H3>Card</ui.H3>
             </ui.Container>
             <ui.Container>
               <ui.P>
                 Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there</ui.A> live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
               </ui.P>
+              <ui.Select placeholder='select' options={options}/>
               <ui.P>SubText</ui.P>
             </ui.Container>
           </ui.Card>
@@ -91,7 +101,7 @@ const Root = React.createClass({
             <ui.Container>
               <ui.H3>Card</ui.H3>
             </ui.Container>
-            <ui.Img src='https://pbs.twimg.com/media/Ce0oTtnVAAAIjbi.jpg'/>
+            <ui.Img src='img.png'/>
             <ui.Container>
               <ui.P>
                 Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A>there</ui.A> live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
@@ -100,6 +110,7 @@ const Root = React.createClass({
                 <ui.Button value='Click'/>
                 <ui.Button value='Click'/>
               </ui.Row>
+              <ui.Shh/>
             </ui.Container>
           </ui.Card>
         </ui.ColWrapper>

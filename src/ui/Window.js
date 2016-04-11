@@ -5,6 +5,7 @@ import * as ui from '../ui'
 export const Window = React.createClass({
   render() {
     return <ui.Div
+      name='Window'
       bottom={0}
       left={0}
       overflow='scroll'

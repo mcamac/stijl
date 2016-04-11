@@ -1,7 +1,10 @@
 
 import React from 'react'
+import {getTheme} from '../getTheme'
+import {getStyle} from '../getStyle'
 
 export const ContentEditable = React.createClass({
+  mixins: [getTheme, getStyle],
   getInitialState() {
     return {}
   },
@@ -34,18 +37,21 @@ export const ContentEditable = React.createClass({
     }
   },
   getInnerHTML() {
-    const {props, state} = this
-    return props.value || state.value || ''
+    return this.props.value || this.state.value || ''
   },
   render() {
+    const actions = this.getActions()
+    const style = this.getStyle()
     return <div
       contentEditable
+      {...actions}
       onFocus={this.handleFocus}
       onBlur={this.handleBlur}
       onInput={this.handleInput}
       onKeyDown={this.handleKeyDown}
       ref={(node) => {this.node = node}}
       style={{
+        ...style,
         outline: 'none',
         cursor: 'text',
         wordBreak: 'break-all',

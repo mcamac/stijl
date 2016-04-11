@@ -6,7 +6,8 @@ import _ from 'lodash/fp'
 
 export const Div = React.createClass({
   mixins: [getTheme, getStyle],
-  handleEnter() {
+  handleEnter(evt) {
+    evt.stopPropagation()
     this.setState({hover: true})
     if (this.props.onMouseEnter) this.props.onMouseEnter()
   },
@@ -22,8 +23,9 @@ export const Div = React.createClass({
     this.setState({hover: false, active: false})
     if (this.props.onMouseLeave) this.props.onMouseLeave()
   },
-  handleDown() {
-    this.setState({active: true})
+  handleDown(evt) {
+    evt.stopPropagation()
+    this.setState({active: false})
     if (this.props.onMouseDown) this.props.onMouseDown()
   },
   handleUp() {
