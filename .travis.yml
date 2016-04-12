@@ -5,22 +5,18 @@ before_install:
 - npm i -g npm
 notifications:
   email: false
-
-## PACKAGE RELEASE ($ travis setup npm)
-# before_deploy:
-# - npm run bates -- lib
-# - npm run bates -- dist
-# after_deploy:
-# - npm run bates -- githubRelease
-# deploy:
-#   skip_cleanup: true
-#   on:
-#     branch: master
-
-## SITE DEPLOY
-# deploy:
-#   skip_cleanup: true
-#   provider: script
-#   script: npm run bates -- deploy
-#   on:
-#     branch: master
+before_deploy:
+- npm run bates -- lib
+- npm run bates -- dist
+after_deploy:
+- npm run bates -- githubRelease
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: info@luiscarli.com
+  api_key:
+    secure: k/f6UYc/oR4A5xhltHLB/gjnp4Hjb95Blih+dv71mTbArbbmqQhtQXhmG+Cg8RopTS+Aj9OT49k4zvHbSL8ukIZysJsfXBgtLmgyraVMc3bnw6sI1TJSjwHIHokRLsWRW6Z78/l17+GJuvA3W2oQhbchsZ5ZNzbQOY5y+1AwVefRiXpfdkpq0kligpPeN9tSAXY+c3lU5kmMKkbK9p8VWYzn/7+ZnQ+GxzNL+76oj/FKYHRZbjnBMHa7l4fzonX4QzE71TrxdpnR8m3S8dFDGhWiPidUgQqlYOU5//FTGrYlIa38p7TTlU8qwGnFqbqe8Ql3oc5SIFXj3/aGMcqm+uzHvML2GHkD3DK3DWW37YRWpoFUp5nEcuQnYurkF0e6Uxi7QOs6kTZDHjz6wDhBFmfzLg2UdF9pEmQA8JNvWZRXIbj5CnT4YUTwdqE8IsSSoytnYjG0nYuhsZh7/R0CZYijVksSlJ9yZe7DAbUxD1EN8LE4kNjTha2DEJHbHxard4eSxRphn0dM6UYXRAhoxq28NHj6u8Ex7S22e0pOXN5XTefhT4Wr27EuY1S3eU1SjsVLOi4eUWzxORHoanWMp5BD+sUSYNT4Wv/3Nwcl5/2zUoKS9MwiyMsKzAQUBr2lQ2Dl0tNMcOmTs3Wdqb6W2pbeoSwI5YTjRZ7yMqTHeNQ=
+  on:
+    tags: true
+    branch: master
+    repo: luiscarli/stijl
