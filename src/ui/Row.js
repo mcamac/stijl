@@ -24,3 +24,23 @@ export const Row = React.createClass({
     </div>
   },
 })
+
+export const FlexRow = React.createClass({
+  mixins: [getTheme],
+  render() {
+    const theme = this.getTheme()
+    return <div
+      {...this.getActions()}
+      style={{
+        ...this.defaultStyle,
+        ...{
+          flexDirection: 'row',
+        },
+        ...theme.FlexRow,
+        ...this.getPropsStyle(),
+      }}
+    >
+      {this.props.children}
+    </div>
+  },
+})
