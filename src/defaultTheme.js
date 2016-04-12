@@ -35,18 +35,18 @@ const whiteInput = {
 
 export const generateTheme = (base) => {
   const {
-    color,
-    background,
-    fontSize,
-    fontFamily,
-    backgroundCard,
-    gutter,
-    flexBasisText,
+    // color,
+    // background,
+    // fontSize,
+    // fontFamily,
+    // backgroundCard,
+    // gutter,
+    // flexBasisText,
     hover,
-    focus,
-    borderWidth,
-    borderRadius,
-    lineHeight,
+    // focus,
+    // borderWidth,
+    // borderRadius,
+    // lineHeight,
   } = base
 
   return {

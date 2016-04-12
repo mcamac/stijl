@@ -68,7 +68,6 @@ export const ButtonFlat = R(React.createClass({
       borderWidth,
       hover,
       gutter,
-      background,
       fontSize,
       borderRadius,
     } = theme.base
