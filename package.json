@@ -1,8 +1,8 @@
 {
   "name": "stijl",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "React UI Components",
+  "main": "lib/index.js",
   "scripts": {
     "test": "bates test",
     "start": "bates start",
