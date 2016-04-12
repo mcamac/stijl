@@ -1,31 +1,22 @@
 
 import React from 'react'
 import {getTheme} from '../getTheme'
-import {getStyle} from '../getStyle'
 
 export const Img = React.createClass({
-  mixins: [getTheme, getStyle],
+  mixins: [getTheme],
   render() {
-    const {props} = this
     const theme = this.getTheme()
-    const actions = this.getActions()
-    const style = this.getStyle()
-
-    return <div
-      {...actions}
+    return <img
+      {...this.getActions()}
+      src={this.props.src}
       style={{
-        ...style,
-        // marginRight: props.full ? 0 : theme.gutter,
-        // marginLeft: props.full ? 0 : theme.gutter,
-      }}
-    >
-      <img
-        style={{
+        ...this.defaultStyle,
+        ...{
           width: '100%',
-          display: 'block',
-        }}
-        src={props.src}
-      />
-    </div>
+        },
+        ...theme.Img,
+        ...this.getPropsStyle(['src']),
+      }}
+    />
   },
 })

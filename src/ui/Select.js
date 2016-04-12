@@ -1,68 +1,63 @@
 
 import React from 'react'
-import _ from '../lodash'
-import * as ui from '../ui'
+import {getTheme} from '../getTheme'
+import R from 'radium'
+import C from 'tinycolor2'
 
-// export const Select = (props) =>
-//   <ui.Row
-//     name='Select'
-//     alignItems='center'
-//     {...props}
-//   >
-//     <ui.ContentEditable flexGrow={1}/>
-//     <ui.Inline>▾</ui.Inline>
-//   </ui.Row>
-
-export const Select = React.createClass({
-  getInitialState() {
+export const Select = R(React.createClass({
+  mixins: [getTheme],
+  getDefaultProps() {
     return {}
   },
-  handleFocus() {
-    this.setState({focus: true})
-    if (this.props.onFocus) this.props.onFocus()
-  },
-  handleBlur() {
-    // this.setState({focus: false})
-    if (this.props.onBlur) this.props.onBlur()
-  },
-  handleClick(option) {
-    this.setState({focus: false})
-    this.props.onChange(option)
-  },
   render() {
-    return <ui.Row
-      name='Select'
-      alignItems='center'
-      onFocus={this.handleFocus}
-      onBlur={this.handleBlur}
+    const theme = this.getTheme()
+    const {
+      borderWidth,
+      hover,
+      gutter,
+      background,
+      fontSize,
+      color,
+      focus,
+      borderRadius,
+    } = theme.base
+    return <select
+      {...this.getActions()}
+      value={this.props.value}
+      style={{
+        ...this.defaultStyle,
+        ...{
+          cursor: 'pointer',
+          borderWidth,
+          borderColor: hover,
+          color,
+          borderRadius,
+          fontSize,
+          background,
+          appearance: 'none',
+          outline: 'none',
+          marginTop: gutter / 4,
+          marginBottom: gutter / 4,
+          paddingTop: gutter / 4,
+          paddingLeft: gutter / 2,
+          paddingBottom: gutter / 4,
+          paddingRight: gutter / 2,
+          ':hover': {
+            background: C(hover).lighten(10).setAlpha(0.2),
+          },
+          ':active': {
+            background: C(hover).darken(10).setAlpha(0.2),
+          },
+          ':focus': {
+            borderColor: focus,
+            background: C(focus).setAlpha(0.2),
+          },
+        },
+        ...theme.Select,
+        ...this.getPropsStyle(['placeholder']),
+      }}
     >
-      <ui.ContentEditable
-        WebkitTapHighlightColor='rgba(0,0,0,0)'
-        flexGrow='1'
-        value={this.props.value}
-      />
-      <ui.Div
-        cursor='pointer'
-      >▾</ui.Div>
-      {this.state.focus ? <ui.Div
-        name='SelectMenu'
-        position='absolute'
-        width='calc(100% + 4px)'
-        left={-2}
-        top='calc(100% + 2px)'
-        zIndex='10'
-      >
-        {_.map(
-          (d, i) => <ui.ButtonFlat
-            key={i}
-            onClick={() => this.handleClick(d)}
-            marginRight={0}
-          >
-            {d}
-          </ui.ButtonFlat>,
-          this.props.options,
-        )}
-      </ui.Div> : undefined}
-    </ui.Row>
+      {this.props.children}
+    </select>
   },
-})
+}))

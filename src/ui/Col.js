@@ -2,8 +2,7 @@
 import React from 'react'
 import {getTheme} from '../getTheme'
 
-
-export const Container = React.createClass({
+export const Col = React.createClass({
   mixins: [getTheme],
   render() {
     const theme = this.getTheme()
@@ -12,11 +11,11 @@ export const Container = React.createClass({
       style={{
         ...this.defaultStyle,
         ...{
-          marginLeft: theme.base.gutter,
-          marginRight: theme.base.gutter,
-          flexShrink: 0,
+          flexGrow: 1,
+          marginLeft: theme.base.gutter / 2,
+          marginRight: theme.base.gutter / 2,
         },
-        ...theme.Container,
+        ...theme.Col,
         ...this.getPropsStyle(),
       }}
     >
