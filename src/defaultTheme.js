@@ -74,4 +74,4 @@ export const generateTheme = (base) => {
 }
 
 export const defaultTheme = generateTheme(blackInput)
-export const blackTheme = generateTheme(blackInput)
+export const secondTheme = generateTheme(whiteInput)
