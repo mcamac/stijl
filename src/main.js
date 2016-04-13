@@ -15,7 +15,7 @@ const Root = React.createClass({
   render() {
     return <ui.Window>
       <ui.Row justifyContent='center'>
-        <ui.ColText m>
+        <ui.ColText m mV>
           <ui.H1 marginBottom={0}>Heading 1</ui.H1>
           <ui.H5 marginTop={0} opacity={0.6}>Heading 5</ui.H5>
           <ui.P>
