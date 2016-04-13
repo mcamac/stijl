@@ -16,14 +16,15 @@ const createH = (n) =>
         {...this.getActions()}
         style={{
           ...this.defaultStyle,
-          ...{
-            display: 'inline',
-            marginTop: scale[n] / 2,
-            marginBottom: scale[n] / 2,
-            color,
-            fontFamily,
-            fontSize: scale[n],
-          },
+          display: 'inline',
+          marginTop: scale[n] / 2,
+          marginBottom: scale[n] / 2,
+          color,
+          fontFamily,
+          fontSize: scale[n],
+          ...this.getLocalGutters({
+            m: true,
+          }),
           ...theme[`H${n}`],
           ...this.getPropsStyle(),
         }}

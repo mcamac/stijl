@@ -16,15 +16,15 @@ export const P = React.createClass({
       {...this.getActions()}
       style={{
         ...this.defaultStyle,
-        ...{
-          display: 'inline',
-          marginTop: theme.base.gutter / 2,
-          marginBottom: theme.base.gutter / 2,
-          color,
-          fontFamily,
-          fontSize,
-          lineHeight,
-        },
+        display: 'inline',
+        color,
+        fontFamily,
+        fontSize,
+        lineHeight,
+        ...this.getLocalGutters({
+          m: true,
+          mV: true,
+        }),
         ...theme.P,
         ...this.getPropsStyle(),
       }}

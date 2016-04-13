@@ -1,10 +1,6 @@
 
-export * from './Div'
 export * from './Window'
-export * from './Container'
-export * from './Row'
 export * from './Col'
-export * from './ColText'
 export * from './Card'
 export * from './S'
 export * from './P'

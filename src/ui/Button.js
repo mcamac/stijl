@@ -14,40 +14,38 @@ export const Button = R(React.createClass({
     const {
       borderWidth,
       hover,
-      gutter,
       background,
       fontSize,
+      gutter,
       borderRadius,
     } = theme.base
     return <button
       {...this.getActions()}
       style={{
         ...this.defaultStyle,
-        ...{
-          cursor: 'pointer',
-          borderWidth,
-          borderColor: hover,
-          display: 'inline',
-          textAlign: 'center',
-          borderRadius,
-          fontWeight: 'bold',
-          fontSize,
-          outline: 'none',
-          color: background,
-          background: hover,
-          marginTop: gutter / 4,
-          marginBottom: gutter / 4,
-          paddingTop: gutter / 4,
-          paddingLeft: gutter / 2,
-          paddingBottom: gutter / 4,
-          paddingRight: gutter / 2,
-          ':hover': {
-            background: C(hover).lighten(10),
-          },
-          ':active': {
-            background: C(hover).darken(10),
-          },
+        cursor: 'pointer',
+        borderWidth,
+        borderColor: hover,
+        display: 'inline',
+        textAlign: 'center',
+        borderRadius,
+        fontWeight: 'bold',
+        fontSize,
+        outline: 'none',
+        color: background,
+        background: hover,
+        marginTop: gutter / 2,
+        marginBottom: gutter / 2,
+        ':hover': {
+          background: C(hover).lighten(10),
         },
+        ':active': {
+          background: C(hover).darken(10),
+        },
+        ...this.getLocalGutters({
+          p: true,
+          pV: true,
+        }),
         ...theme.Button,
         ...this.getPropsStyle(),
       }}
@@ -67,38 +65,36 @@ export const ButtonFlat = R(React.createClass({
     const {
       borderWidth,
       hover,
-      gutter,
       fontSize,
       borderRadius,
+      gutter,
     } = theme.base
     return <button
       {...this.getActions()}
       style={{
         ...this.defaultStyle,
-        ...{
-          cursor: 'pointer',
-          borderWidth,
-          borderColor: hover,
-          display: 'inline',
-          textAlign: 'center',
-          borderRadius,
-          fontSize,
-          outline: 'none',
-          color: hover,
-          background: 'none',
-          marginTop: gutter / 4,
-          marginBottom: gutter / 4,
-          paddingTop: gutter / 4,
-          paddingLeft: gutter / 2,
-          paddingBottom: gutter / 4,
-          paddingRight: gutter / 2,
-          ':hover': {
-            background: C(hover).lighten(10).setAlpha(0.2),
-          },
-          ':active': {
-            background: C(hover).darken(10).setAlpha(0.2),
-          },
+        cursor: 'pointer',
+        borderWidth,
+        borderColor: hover,
+        display: 'inline',
+        textAlign: 'center',
+        borderRadius,
+        fontSize,
+        outline: 'none',
+        color: hover,
+        background: 'none',
+        marginTop: gutter / 2,
+        marginBottom: gutter / 2,
+        ':hover': {
+          background: C(hover).lighten(10).setAlpha(0.2),
         },
+        ':active': {
+          background: C(hover).darken(10).setAlpha(0.2),
+        },
+        ...this.getLocalGutters({
+          p: true,
+          pV: true,
+        }),
         ...theme.ButtonFlat,
         ...this.getPropsStyle(),
       }}

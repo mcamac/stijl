@@ -6,17 +6,24 @@ export const Img = React.createClass({
   mixins: [getTheme],
   render() {
     const theme = this.getTheme()
-    return <img
+    return <div
       {...this.getActions()}
-      src={this.props.src}
       style={{
         ...this.defaultStyle,
-        ...{
-          width: '100%',
-        },
+        ...this.getLocalGutters({
+          p: true,
+          pV: true,
+        }),
         ...theme.Img,
-        ...this.getPropsStyle(['src']),
+        ...this.getPropsStyle(),
       }}
-    />
+    >
+      <img
+        src={this.props.src}
+        style={{
+          width: '100%',
+        }}
+      />
+    </div>
   },
 })

@@ -7,7 +7,6 @@ export const Card = React.createClass({
   render() {
     const theme = this.getTheme()
     const {
-      gutter,
       backgroundCard,
       borderRadius,
     } = theme.base
@@ -17,16 +16,16 @@ export const Card = React.createClass({
         ...this.defaultStyle,
         ...{
           flexGrow: 1,
-          marginLeft: gutter / 2,
-          marginRight: gutter / 2,
-          marginTop: gutter / 2,
-          marginBottom: gutter / 2,
-          paddingTop: gutter / 2,
-          paddingBottom: gutter / 2,
           background: backgroundCard,
           flexBasis: 250,
           borderRadius,
         },
+        ...this.getLocalGutters({
+          m: true,
+          mV: true,
+          p: true,
+          pV: true,
+        }),
         ...theme.Card,
         ...this.getPropsStyle(),
       }}

@@ -11,7 +11,7 @@ export const Sh = React.createClass({
       style={{
         ...this.defaultStyle,
         ...{
-          flexBasis: theme.base.gutter / 4,
+          flexBasis: theme.base.gutter / 2,
           flexShrink: 0,
         },
         ...theme.Sh,
@@ -32,7 +32,7 @@ export const S = React.createClass({
       style={{
         ...this.defaultStyle,
         ...{
-          flexBasis: theme.base.gutter / 2,
+          flexBasis: theme.base.gutter,
           flexShrink: 0,
         },
         ...theme.S,
@@ -53,7 +53,7 @@ export const S2 = React.createClass({
       style={{
         ...this.defaultStyle,
         ...{
-          flexBasis: theme.base.gutter,
+          flexBasis: theme.base.gutter * 2,
           flexShrink: 0,
         },
         ...theme.S2,
@@ -74,7 +74,7 @@ export const S3 = React.createClass({
       style={{
         ...this.defaultStyle,
         ...{
-          flexBasis: theme.base.gutter * 1.5,
+          flexBasis: theme.base.gutter * 3,
           flexShrink: 0,
         },
         ...theme.S3,
