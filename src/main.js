@@ -55,8 +55,8 @@ const Root = React.createClass({
           </ui.Row>
         </ui.ColText>
       </ui.Row>
-      <ui.Row justifyContent='center'>
-        <ui.ColText m mV>
+      <ui.Row justifyContent='center' flexGrow={1}>
+        <ui.ColText p pV justifyContent='center'>
           <ui.S/>
           <ui.H1>Heading 1</ui.H1>
           <ui.P>
