@@ -17,13 +17,12 @@ const createH = (n) =>
         style={{
           ...this.defaultStyle,
           display: 'inline',
-          marginTop: scale[n] / 2,
-          marginBottom: scale[n] / 2,
           color,
           fontFamily,
           fontSize: scale[n],
           ...this.getLocalGutters({
             m: true,
+            mV: true,
           }),
           ...theme[`H${n}`],
           ...this.getPropsStyle(),

@@ -16,7 +16,6 @@ export const Select = R(React.createClass({
       hover,
       background,
       fontSize,
-      color,
       focus,
       borderRadius,
       gutter,

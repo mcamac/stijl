@@ -1,10 +1,20 @@
 
 import C from 'tinycolor2'
 
+const size = 15
+
 const blackInput = {
   fontSize: 15,
-  scale: [48, 32, 24, 20, 16, 14, 12],
-  gutter: 8,
+  scale: [
+    size * 2.5,
+    size * 2,
+    size * 1.75,
+    size * 1.5,
+    size,
+    size * 0.875,
+    size * 0.75,
+  ],
+  gutter: size / 2,
   flexBasisText: 600,
   fontFamily: 'Open Sans',
   color: '#eee',
