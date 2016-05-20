@@ -38,7 +38,7 @@ const Root = React.createClass({
             justifyContent='space-between'
             alignContent='flex-start'
           >
-            <ui.H3 marginRight='30'><ui.A>Main</ui.A></ui.H3>
+            <ui.H3 marginRight={30}><ui.A>Main</ui.A></ui.H3>
             <ui.Row
               flexWrap='wrap'
               flexGrow={1}
