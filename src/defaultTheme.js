@@ -5,17 +5,9 @@ const size = 15
 
 const blackInput = {
   fontSize: 15,
-  scale: [
-    size * 2.5,
-    size * 2,
-    size * 1.75,
-    size * 1.5,
-    size,
-    size * 0.875,
-    size * 0.75,
-  ],
+  // H0, H1, H2, H3, H4, H5, H6
+  scale: [48, 32, 24, 20, 16, 14, 12],
   gutter: size / 2,
-  flexBasisText: 600,
   fontFamily: 'Open Sans',
   color: '#eee',
   background: '#242426',
@@ -29,9 +21,9 @@ const blackInput = {
 
 const whiteInput = {
   fontSize: 16,
+  // H0, H1, H2, H3, H4, H5, H6
   scale: [48, 32, 24, 20, 16, 14, 12],
   gutter: 10,
-  flexBasisText: 600,
   fontFamily: 'Open Sans',
   color: '#242426',
   background: '#eee',

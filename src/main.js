@@ -28,11 +28,10 @@ const Root = React.createClass({
   render() {
     return <ui.Window>
       <ui.Row
-        p
         justifyContent='center'
         background={this.state.theme.base.backgroundCard}
       >
-        <ui.ColText>
+        <ui.Col p flexBasis={700}>
           <ui.Row
             alignItems='center'
             justifyContent='space-between'
@@ -53,30 +52,38 @@ const Root = React.createClass({
               </ui.H4>
             </ui.Row>
           </ui.Row>
-        </ui.ColText>
+        </ui.Col>
       </ui.Row>
-      <ui.Row justifyContent='center' flexGrow={1}>
-        <ui.ColText p pV justifyContent='center'>
+      <ui.Row justifyContent='center'>
+        <ui.Card noM flexGrow={0} flexBasis={700}>
+          <ui.H3>Sub-title</ui.H3>
+          <ui.P>
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A href='#'>there live the blind texts. Separated they live in Bookmarksgrove right</ui.A> at the coast of the Semantics, a large language ocean.
+          </ui.P>
+        </ui.Card>
+      </ui.Row>
+      <ui.Row justifyContent='center'>
+        <ui.Col p pV flexBasis={700}>
           <ui.S/>
           <ui.H1>Heading 1</ui.H1>
           <ui.P>
             Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A href='#'>there live the blind texts. Separated they live in Bookmarksgrove right</ui.A> at the coast of the Semantics, a large language ocean.
           </ui.P>
           <ui.Img src='test.png'/>
-          <ui.H5 marginBottom={0}>Sub-title</ui.H5>
+          <ui.H5 paddingBottom={0}>Sub-title</ui.H5>
           <ui.Select m>
             <option>option 1</option>
             <option>option 2</option>
             <option>option 3</option>
           </ui.Select>
-          <ui.H5 marginBottom={0}>Sub-title</ui.H5>
+          <ui.H5 paddingBottom={0}>Sub-title</ui.H5>
           <ui.Row m>
             <ui.Input flexGrow={1} placeholder='placeholder'/>
             <ui.S/>
             <ui.Button value='Button'/>
           </ui.Row>
           <ui.Row flexWrap='wrap'>
-            <ui.Card>
+            <ui.Card flexBasis={250} flexGrow={1}>
               <ui.H3>Sub-title</ui.H3>
               <ui.P>
                 Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A href='#'>there live the blind texts. Separated they live in Bookmarksgrove right</ui.A> at the coast of the Semantics, a large language ocean.
@@ -85,14 +92,14 @@ const Root = React.createClass({
                 Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A href='#'>there live the blind texts. Separated they live in Bookmarksgrove right</ui.A> at the coast of the Semantics, a large language ocean.
               </ui.P>
             </ui.Card>
-            <ui.Card>
+            <ui.Card flexBasis={400} flexGrow={99999999}>
               <ui.H3>Sub-title</ui.H3>
               <ui.P>
                 Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, <ui.A href='#'>there live the blind texts. Separated they live in Bookmarksgrove right</ui.A> at the coast of the Semantics, a large language ocean.
               </ui.P>
             </ui.Card>
           </ui.Row>
-        </ui.ColText>
+        </ui.Col>
       </ui.Row>
     </ui.Window>
   },

@@ -21,26 +21,6 @@ export const Col = React.createClass({
   },
 })
 
-export const ColText = React.createClass({
-  mixins: [getTheme],
-  render() {
-    const theme = this.getTheme()
-    return <div
-      {...this.getActions()}
-      style={{
-        ...this.defaultStyle,
-        flexBasis: theme.base.flexBasisText,
-        flexGrow: 0,
-        ...this.getLocalGutters(),
-        ...theme.ColText,
-        ...this.getPropsStyle(),
-      }}
-    >
-      {this.props.children}
-    </div>
-  },
-})
-
 export const Row = React.createClass({
   mixins: [getTheme],
   render() {
