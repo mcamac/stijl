@@ -10,7 +10,6 @@ export const Col = React.createClass({
       {...this.getActions()}
       style={{
         ...this.defaultStyle,
-        flexGrow: 1,
         ...this.getLocalGutters(),
         ...theme.Col,
         ...this.getPropsStyle(),
@@ -30,7 +29,6 @@ export const Row = React.createClass({
       style={{
         ...this.defaultStyle,
         flexDirection: 'row',
-        flexGrow: 0,
         flexShrink: 0,
         ...this.getLocalGutters(),
         ...theme.Row,
