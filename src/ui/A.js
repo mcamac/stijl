@@ -7,9 +7,7 @@ import C from 'tinycolor2'
 export const A = R(React.createClass({
   mixins: [getTheme],
   getDefaultProps() {
-    return {
-      href: '#',
-    }
+    return {}
   },
   render() {
     const theme = this.getTheme()
@@ -24,6 +22,7 @@ export const A = R(React.createClass({
         ...{
           display: 'inline',
           color: hover,
+          cursor: 'pointer',
           ':hover': {
             color: C(hover).lighten(10),
           },

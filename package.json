@@ -11,7 +11,8 @@
   "author": "Luis Carli",
   "license": "MIT",
   "devDependencies": {
-    "bates": "^2.1.0"
+    "bates": "^2.1.0",
+    "history": "^2.1.1"
   },
   "dependencies": {
     "lodash": "^4.9.0",
