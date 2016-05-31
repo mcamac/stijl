@@ -17,7 +17,7 @@ export const Card = React.createClass({
         ...{
           flexGrow: 1,
           background: backgroundCard,
-          flexBasis: 250,
+          // flexBasis: 250,
           borderRadius,
         },
         ...this.getLocalGutters({
