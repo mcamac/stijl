@@ -19,11 +19,11 @@ class Root extends React.Component {
     return <RouterHOC>
       <OnChangeHOC>
         <SetThemeHOC>
-          <App />
+          <App/>
         </SetThemeHOC>
       </OnChangeHOC>
     </RouterHOC>
   }
 }
 
-ReactDOM.render(<Root />, document.getElementById('root'))
+ReactDOM.render(<Root/>, document.getElementById('root'))
