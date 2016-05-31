@@ -1,41 +1,24 @@
 
 import C from 'tinycolor2'
 
-const size = 15
-
-const blackInput = {
+const defaultBase = {
   fontSize: 15,
   // H0, H1, H2, H3, H4, H5, H6
   scale: [48, 32, 24, 20, 16, 14, 12],
-  gutter: size / 2,
-  fontFamily: 'Open Sans',
-  color: '#eee',
-  background: '#242426',
-  hover: '#50afc6',
-  focus: 'hsl(50, 90%, 55%)',
-  borderWidth: 2,
-  borderRadius: 0,
-  backgroundCard: '#313335',
-  lineHeight: 1.4,
-}
-
-const whiteInput = {
-  fontSize: 16,
-  // H0, H1, H2, H3, H4, H5, H6
-  scale: [48, 32, 24, 20, 16, 14, 12],
-  gutter: 10,
+  gutter: 15 / 2,
   fontFamily: 'Open Sans',
   color: '#242426',
   background: '#eee',
   hover: 'hsl(0, 60%, 52%)',
   focus: 'hsl(32, 78%, 55%)',
   borderWidth: 2,
-  borderRadius: 5,
+  borderRadius: 0,
   backgroundCard: 'hsl(195, 3%, 78%)',
   lineHeight: 1.4,
+  flexBasisText: 800,
 }
 
-export const generateTheme = (base) => {
+export const getComponentsTheme = (base) => {
   const {
     // color,
     // background,
@@ -52,7 +35,6 @@ export const generateTheme = (base) => {
   } = base
 
   return {
-    base,
     Input: {
       borderWidth: 0,
       borderBottomWidth: borderWidth,
@@ -75,5 +57,15 @@ export const generateTheme = (base) => {
   }
 }
 
-export const defaultTheme = generateTheme(blackInput)
-export const secondTheme = generateTheme(whiteInput)
+export const generateTheme = (input = {}) => {
+  const base = {
+    ...defaultBase,
+    ...input.base,
+  }
+  const theme = {
+    ...getComponentsTheme(base),
+    ...input,
+    base,
+  }
+  return theme
+}
