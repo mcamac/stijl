@@ -1,7 +1,7 @@
 
 import React from 'react'
 import * as ui from '../ui'
-import {defaultTheme, secondTheme} from '../defaultTheme'
+import {blackBase} from '../defaultTheme'
 
 export const App = (props) =>
 <ui.Window>
@@ -15,17 +15,17 @@ export const App = (props) =>
         justifyContent='space-between'
         alignContent='flex-start'
       >
-        <ui.H3 marginRight={30}><ui.Link to='/'>Main</ui.Link></ui.H3>
+        <ui.H3><ui.Link to='/'>Main</ui.Link></ui.H3>
         <ui.Row
           flexWrap='wrap'
           flexGrow={1}
           flexShrink={1}
           justifyContent='flex-end'
         >
-          <ui.H4 onClick={() => props.onChange({theme: defaultTheme})}>
+          <ui.H4 onClick={() => props.onChange({theme: {base: blackBase}})}>
             <ui.Link to='/default-theme'>theme 1</ui.Link>
           </ui.H4>
-          <ui.H4 onClick={() => props.onChange({theme: secondTheme})}>
+          <ui.H4 onClick={() => props.onChange({theme: {}})}>
             <ui.Link to='/second-theme'>theme 2</ui.Link>
           </ui.H4>
         </ui.Row>
