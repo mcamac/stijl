@@ -4,5 +4,6 @@ export * as ui from './ui'
 export {getTheme} from './getTheme'
 export * from './defaultTheme'
 
-export {SetThemeHOC} from './SetThemeHOC'
-export {RouterHOC} from './RouterHOC'
+export * from './SetThemeHOC'
+export * from './RouterHOC'
+export * from './OnChangeHOC'
