@@ -7,20 +7,24 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {SetThemeHOC} from './SetThemeHOC'
-import {OnChangeHOC} from './OnChangeHOC'
+// import Relay from 'react-relay'
+import _ from 'lodash/fp'
+import {Router, Route, browserHistory} from 'react-router'
+
 import {App} from './App'
 
-document.title = 'stijl'
+_.map = _.map.convert({cap: false})
 
-class Root extends React.Component {
-  render() {
-    return <OnChangeHOC>
-      <SetThemeHOC>
-        <App/>
-      </SetThemeHOC>
-    </OnChangeHOC>
-  }
-}
+document.title = 'Project'
+document.body.bgColor = 'black'
 
-ReactDOM.render(<Root/>, document.getElementById('root'))
+// Relay.injectNetworkLayer(
+//   new Relay.DefaultNetworkLayer('http://localhost:5000/graphql')
+// )
+
+ReactDOM.render(
+  <Router history={browserHistory}>
+    <Route path='*' component={App}/>
+  </Router>
+  , document.getElementById('root')
+)

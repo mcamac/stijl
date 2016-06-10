@@ -1,9 +1,11 @@
 
 import React from 'react'
 import * as ui from '../ui'
+import {SetThemeHOC} from '../SetThemeHOC'
+import {OnChangeHOC} from '../OnChangeHOC'
 import {blackBase} from '../defaultTheme'
 
-export const App = (props) =>
+export const AppInner = (props) =>
 <ui.Window>
   <ui.Row
     justifyContent='center'
@@ -80,3 +82,14 @@ export const App = (props) =>
     </ui.Col>
   </ui.Row>
 </ui.Window>
+
+export class App extends React.Component {
+  render() {
+    const {props} = this
+    return <OnChangeHOC>
+      <SetThemeHOC>
+        <AppInner {...props}/>
+      </SetThemeHOC>
+    </OnChangeHOC>
+  }
+}
