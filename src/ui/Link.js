@@ -9,8 +9,8 @@ export class Link extends React.Component {
   }
   handleClick = (evt) => {
     evt.preventDefault()
-    if (!this.context.history || !this.props.to) return
-    this.context.history.push(this.props.to)
+    if (!this.context.router || !this.props.to) return
+    this.context.router.push(this.props.to)
   }
   render() {
     return <A
