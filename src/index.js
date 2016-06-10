@@ -5,5 +5,4 @@ export {getTheme} from './getTheme'
 export * from './defaultTheme'
 
 export * from './SetThemeHOC'
-export * from './RouterHOC'
 export * from './OnChangeHOC'
