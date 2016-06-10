@@ -5,7 +5,7 @@ import {A} from './A'
 
 export class Link extends React.Component {
   static contextTypes = {
-    history: React.PropTypes.object,
+    router: React.PropTypes.object,
   }
   handleClick = (evt) => {
     evt.preventDefault()
