@@ -52,6 +52,7 @@ export const Select = R(React.createClass({
         }),
         ...theme.Select,
         ...this.getPropsStyle(['placeholder']),
+        ...this.props.style,
       }}
     >
       {this.props.children}

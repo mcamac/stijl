@@ -22,6 +22,8 @@ export const Input = R(React.createClass({
       {...this.getActions()}
       placeholder={this.props.placeholder}
       value={this.props.value}
+      ref={this.props.localRef}
+      name={this.props.name}
       style={{
         ...this.defaultStyle,
         cursor: 'text',
