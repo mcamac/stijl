@@ -20,7 +20,9 @@ const defaultStyle = {
 
 const omitValues = [
   'm', 'noM', 'mV', 'noMV', 'p', 'noP', 'pV', 'noPV',
-  'value', 'children', 'href', 'placeholder', 'src',
+  'value', 'defaultValue', 'multiple', 'name',
+  'localRef',
+  'children', 'href', 'placeholder', 'src',
 ]
 
 export const getTheme = {
