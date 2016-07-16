@@ -1,9 +1,10 @@
 
 import React from 'react'
 import {getTheme} from '../getTheme'
+import R from 'radium'
 
 const createH = (n) =>
-  React.createClass({
+  R(React.createClass({
     mixins: [getTheme],
     render() {
       const theme = this.getTheme()
@@ -31,7 +32,7 @@ const createH = (n) =>
         {this.props.value || this.props.children}
       </div>
     },
-  })
+  }))
 
 export const H0 = createH(0)
 export const H1 = createH(1)

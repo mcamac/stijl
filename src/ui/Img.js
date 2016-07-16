@@ -1,8 +1,9 @@
 
 import React from 'react'
 import {getTheme} from '../getTheme'
+import R from 'radium'
 
-export const Img = React.createClass({
+export const Img = R(React.createClass({
   mixins: [getTheme],
   render() {
     const theme = this.getTheme()
@@ -26,4 +27,4 @@ export const Img = React.createClass({
       />
     </div>
   },
-})
+}))

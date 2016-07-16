@@ -1,8 +1,9 @@
 
 import React from 'react'
 import {getTheme} from '../getTheme'
+import R from 'radium'
 
-export const Card = React.createClass({
+export const Card = R(React.createClass({
   mixins: [getTheme],
   render() {
     const theme = this.getTheme()
@@ -33,4 +34,4 @@ export const Card = React.createClass({
       {this.props.children}
     </div>
   },
-})
+}))

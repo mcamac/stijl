@@ -1,8 +1,9 @@
 
 import React from 'react'
 import {getTheme} from '../getTheme'
+import R from 'radium'
 
-export const Col = React.createClass({
+export const Col = R(React.createClass({
   mixins: [getTheme],
   render() {
     const theme = this.getTheme()
@@ -18,9 +19,9 @@ export const Col = React.createClass({
       {this.props.children}
     </div>
   },
-})
+}))
 
-export const ColText = React.createClass({
+export const ColText = R(React.createClass({
   mixins: [getTheme],
   render() {
     const theme = this.getTheme()
@@ -37,9 +38,9 @@ export const ColText = React.createClass({
       {this.props.children}
     </div>
   },
-})
+}))
 
-export const Row = React.createClass({
+export const Row = R(React.createClass({
   mixins: [getTheme],
   render() {
     const theme = this.getTheme()
@@ -57,4 +58,4 @@ export const Row = React.createClass({
       {this.props.children}
     </div>
   },
-})
+}))
