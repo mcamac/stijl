@@ -6,7 +6,7 @@ import {OnChangeHOC} from '../OnChangeHOC'
 import {blackBase} from '../defaultTheme'
 
 export const AppInner = (props) =>
-<ui.Window>
+<ui.Col>
   <ui.Row
     justifyContent='center'
     background={props.theme.base.backgroundCard}
@@ -81,7 +81,7 @@ export const AppInner = (props) =>
       </ui.Row>
     </ui.Col>
   </ui.Row>
-</ui.Window>
+</ui.Col>
 
 export class App extends React.Component {
   render() {
