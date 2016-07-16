@@ -1,6 +1,6 @@
 
 import React from 'react'
-import {defaultTheme} from './defaultTheme'
+import defaultTheme from './defaultTheme'
 import _ from 'lodash/fp'
 
 const defaultStyle = {

@@ -18,4 +18,4 @@ export const blackBase = {
   // flexBasisText: 800,
 }
 
-export const defaultTheme = generateTheme()
+export default generateTheme()
