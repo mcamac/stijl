@@ -22,7 +22,7 @@ const omitValues = [
   'm', 'noM', 'mV', 'noMV', 'p', 'noP', 'pV', 'noPV',
   'value', 'defaultValue', 'multiple', 'name',
   'localRef',
-  'children', 'href', 'placeholder', 'src',
+  'children', 'href', 'placeholder', 'src', 'style',
 ]
 
 export const getTheme = {
@@ -91,10 +91,14 @@ export const getTheme = {
     return _.pickBy((value, name) => /^on/.test(name), this.props)
   },
   getPropsStyle(omitArray) {
-    return _.flow(
+    const styl = _.flow(
       _.omitBy((value, name) => /^on/.test(name)),
       _.omit(omitValues),
       _.omit(omitArray),
     )(this.props)
+    return {
+      ...styl,
+      ...this.props.style,
+    }
   },
 }
