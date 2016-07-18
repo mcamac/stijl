@@ -16,6 +16,7 @@ export class SetThemeHOC extends React.Component {
   })
 
   render() {
+    if (!this.props.children) return null
     return React.cloneElement(
       React.Children.only(this.props.children),
       {
