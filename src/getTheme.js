@@ -85,6 +85,12 @@ export const getTheme = {
       localGutters.paddingTop = 0
       localGutters.paddingBottom = 0
     }
+    if (props.marginAuto) {
+      localGutters.marginTop = 'auto'
+      localGutters.marginBottom = 'auto'
+      localGutters.marginLeft = 'auto'
+      localGutters.marginRight = 'auto'
+    }
     return localGutters
   },
   getActions() {
