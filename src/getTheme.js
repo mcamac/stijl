@@ -20,6 +20,7 @@ const defaultStyle = {
 
 const omitValues = [
   'm', 'noM', 'mV', 'noMV', 'p', 'noP', 'pV', 'noPV',
+  'marginAuto', 'v',
   'value', 'defaultValue', 'multiple', 'name',
   'localRef',
   'children', 'href', 'placeholder', 'src', 'style',
