@@ -59,3 +59,6 @@ export const Row = R(React.createClass({
     </div>
   },
 }))
+
+export const RowWrap = (props) =>
+  <Row flexWrap='wrap' {...props}/>
