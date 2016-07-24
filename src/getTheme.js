@@ -10,12 +10,12 @@ const defaultStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'stretch',
-  flexShrink: 1,
-  flexGrow: 0,
+  flexShrink: 0,
   alignContent: 'flex-start',
 
   borderWidth: 0,
   borderStyle: 'solid',
+  minWidth: 0,
 }
 
 const omitValues = [
