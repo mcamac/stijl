@@ -29,7 +29,7 @@ const createH = (n) =>
           ...this.getPropsStyle(),
         }}
       >
-        {this.props.value || this.props.children}
+        {this.props.v || this.props.value || this.props.children}
       </div>
     },
   }))
