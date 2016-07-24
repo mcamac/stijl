@@ -12,6 +12,7 @@
   "author": "Luis Carli",
   "license": "MIT",
   "devDependencies": {
+    "babel-loader": "^6.2.4",
     "bates": "^2.1.0"
   },
   "dependencies": {
