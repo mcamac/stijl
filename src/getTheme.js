@@ -46,9 +46,17 @@ export const getTheme = {
       ...this.props,
     }
 
+    if (props.mH) {
+      localGutters.marginLeft = gutter
+      localGutters.marginRight = gutter
+    }
     if (props.m) {
       localGutters.marginLeft = gutter
       localGutters.marginRight = gutter
+    }
+    if (props.m2) {
+      localGutters.marginLeft = gutter * 2
+      localGutters.marginRight = gutter * 2
     }
     if (props.noM) {
       localGutters.marginLeft = 0
@@ -62,25 +70,49 @@ export const getTheme = {
       localGutters.marginLeft = - gutter * 2
       localGutters.marginRight = - gutter * 2
     }
+    if (props.mVH) {
+      localGutters.marginTop = gutter / 2
+      localGutters.marginBottom = gutter / 2
+    }
     if (props.mV) {
       localGutters.marginTop = gutter
       localGutters.marginBottom = gutter
+    }
+    if (props.mV2) {
+      localGutters.marginTop = gutter * 2
+      localGutters.marginBottom = gutter * 2
     }
     if (props.noMV) {
       localGutters.marginTop = 0
       localGutters.marginBottom = 0
     }
+    if (props.pH) {
+      localGutters.paddingLeft = gutter / 2
+      localGutters.paddingRight = gutter / 2
+    }
     if (props.p) {
       localGutters.paddingLeft = gutter
       localGutters.paddingRight = gutter
+    }
+    if (props.p2) {
+      localGutters.paddingLeft = gutter * 2
+      localGutters.paddingRight = gutter * 2
     }
     if (props.noP) {
       localGutters.paddingLeft = 0
       localGutters.paddingRight = 0
     }
+    if (props.pVH) {
+      localGutters.paddingTop = gutter / 2
+      localGutters.paddingBottom = gutter / 2
+    }
     if (props.pV) {
       localGutters.paddingTop = gutter
       localGutters.paddingBottom = gutter
+    }
+    if (props.pV2) {
+      localGutters.paddingTop = gutter * 2
+      localGutters.paddingBottom = gutter * 2
     }
     if (props.noPV) {
       localGutters.paddingTop = 0

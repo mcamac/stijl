@@ -2,7 +2,7 @@
 import React from 'react'
 import {getTheme} from '../getTheme'
 
-export const Sh = React.createClass({
+export const SH = React.createClass({
   mixins: [getTheme],
   render() {
     const theme = this.getTheme()
