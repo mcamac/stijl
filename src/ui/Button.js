@@ -16,7 +16,7 @@ export const Button = R(React.createClass({
       hover,
       background,
       fontSize,
-      gutter,
+      // gutter,
       borderRadius,
     } = theme.base
     return <button
@@ -34,8 +34,9 @@ export const Button = R(React.createClass({
         outline: 'none',
         color: background,
         background: hover,
-        marginTop: gutter / 2,
-        marginBottom: gutter / 2,
+        // marginTop: gutter / 2,
+        // marginBottom: gutter / 2,
+        alignSelf: 'center',
         ':hover': {
           background: C(hover).lighten(10),
         },
@@ -50,7 +51,7 @@ export const Button = R(React.createClass({
         ...this.getPropsStyle(),
       }}
     >
-      {this.props.value || this.props.children}
+      {this.props.v || this.props.value || this.props.children}
     </button>
   },
 }))
@@ -67,7 +68,7 @@ export const ButtonFlat = R(React.createClass({
       hover,
       fontSize,
       borderRadius,
-      gutter,
+      // gutter,
     } = theme.base
     return <button
       {...this.getActions()}
@@ -83,8 +84,8 @@ export const ButtonFlat = R(React.createClass({
         outline: 'none',
         color: hover,
         background: 'none',
-        marginTop: gutter / 2,
-        marginBottom: gutter / 2,
+        // marginTop: gutter / 2,
+        // marginBottom: gutter / 2,
         ':hover': {
           background: C(hover).lighten(10).setAlpha(0.2),
         },
@@ -99,7 +100,7 @@ export const ButtonFlat = R(React.createClass({
         ...this.getPropsStyle(),
       }}
     >
-      {this.props.value || this.props.children}
+      {this.props.v || this.props.value || this.props.children}
     </button>
   },
 }))

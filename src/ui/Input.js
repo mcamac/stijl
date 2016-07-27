@@ -15,7 +15,7 @@ export const Input = R(React.createClass({
       fontSize,
       color,
       focus,
-      gutter,
+      // gutter,
       borderRadius,
     } = theme.base
     return <input
@@ -34,8 +34,8 @@ export const Input = R(React.createClass({
         background,
         borderRadius,
         outline: 'none',
-        marginTop: gutter / 2,
-        marginBottom: gutter / 2,
+        // marginTop: gutter / 2,
+        // marginBottom: gutter / 2,
         ':hover': {
           background: C(hover).lighten(10).setAlpha(0.2),
         },

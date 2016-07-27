@@ -23,7 +23,7 @@ export const P = R(React.createClass({
         fontSize,
         lineHeight,
         ...this.getLocalGutters({
-          m: true,
+          // m: true,
           mV: true,
         }),
         ...theme.P,

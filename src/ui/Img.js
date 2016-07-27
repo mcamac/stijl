@@ -12,7 +12,7 @@ export const Img = R(React.createClass({
       style={{
         ...this.defaultStyle,
         ...this.getLocalGutters({
-          p: true,
+          // p: true,
           pV: true,
         }),
         ...theme.Img,
