@@ -5,4 +5,4 @@ export {getTheme} from './getTheme'
 export defaultTheme from './defaultTheme'
 
 export ThemeRoot from './ThemeRoot'
-export withTheme from './withTheme'
+export * from './withTheme'
