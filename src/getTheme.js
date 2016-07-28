@@ -70,6 +70,14 @@ export const getTheme = {
       localGutters.marginLeft = - gutter * 2
       localGutters.marginRight = - gutter * 2
     }
+    if (props.negMV) {
+      localGutters.marginTop = - gutter
+      localGutters.marginBottom = - gutter
+    }
+    if (props.negMV2) {
+      localGutters.marginTop = - gutter * 2
+      localGutters.marginBottom = - gutter * 2
+    }
     if (props.mVH) {
       localGutters.marginTop = gutter / 2
       localGutters.marginBottom = gutter / 2
