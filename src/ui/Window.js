@@ -16,7 +16,7 @@ export const Window = React.createClass({
       {...this.getActions()}
       style={{
         ...this.defaultStyle,
-        height: '100%',
+        minHeight: '100%',
         background,
         color,
         fontFamily,
