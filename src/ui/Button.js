@@ -16,7 +16,6 @@ export const Button = R(React.createClass({
       hover,
       background,
       fontSize,
-      // gutter,
       borderRadius,
     } = theme.base
     return <button
@@ -34,8 +33,6 @@ export const Button = R(React.createClass({
         outline: 'none',
         color: background,
         background: hover,
-        // marginTop: gutter / 2,
-        // marginBottom: gutter / 2,
         alignSelf: 'center',
         ':hover': {
           background: C(hover).lighten(10),
@@ -44,6 +41,7 @@ export const Button = R(React.createClass({
           background: C(hover).darken(10),
         },
         ...this.getLocalGutters({
+          m: true,
           p: true,
           pV: true,
         }),

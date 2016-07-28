@@ -18,7 +18,6 @@ export const Select = R(React.createClass({
       fontSize,
       focus,
       borderRadius,
-      // gutter,
     } = theme.base
     return <select
       {...this.getActions()}
@@ -34,8 +33,6 @@ export const Select = R(React.createClass({
         background,
         appearance: 'none',
         outline: 'none',
-        // marginTop: gutter / 2,
-        // marginBottom: gutter / 2,
         ':hover': {
           background: C(hover).lighten(10).setAlpha(0.2),
         },
@@ -47,6 +44,7 @@ export const Select = R(React.createClass({
           background: C(focus).setAlpha(0.2),
         },
         ...this.getLocalGutters({
+          m: true,
           p: true,
           pV: true,
         }),

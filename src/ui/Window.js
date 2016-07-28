@@ -21,7 +21,10 @@ export const Window = React.createClass({
         color,
         fontFamily,
         fontSize,
-        ...this.getLocalGutters(),
+        ...this.getLocalGutters({
+          p: true,
+          pV: true,
+        }),
         ...theme.Window,
         ...this.getPropsStyle(),
       }}

@@ -22,7 +22,7 @@ const createH = (n) =>
           fontFamily,
           fontSize: scale[n],
           ...this.getLocalGutters({
-            // m: true,
+            m: true,
             mV: true,
           }),
           ...theme[`H${n}`],
