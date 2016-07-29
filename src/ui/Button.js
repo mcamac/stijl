@@ -33,7 +33,6 @@ export const Button = R(React.createClass({
         outline: 'none',
         color: background,
         background: hover,
-        alignSelf: 'center',
         ':hover': {
           background: C(hover).lighten(10),
         },
