@@ -46,13 +46,13 @@ export const getTheme = {
       ...this.props,
     }
 
-    if (props.mH) {
-      localGutters.marginLeft = gutter
-      localGutters.marginRight = gutter
-    }
     if (props.m) {
       localGutters.marginLeft = gutter
       localGutters.marginRight = gutter
+    }
+    if (props.mH) {
+      localGutters.marginLeft = gutter / 2
+      localGutters.marginRight = gutter / 2
     }
     if (props.m2) {
       localGutters.marginLeft = gutter * 2
