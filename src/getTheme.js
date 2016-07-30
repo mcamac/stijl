@@ -40,9 +40,52 @@ export const getTheme = {
   getLocalGutters(extras) {
     const theme = this.getTheme()
     const {gutter} = theme.base
+    let cleanGutter = {}
+    if (_.contains(
+      ['m', 'mH', 'm2', 'noM', 'negM', 'negM2'],
+      this.props,
+    )) {
+      cleanGutter = {
+        ...cleanGutter,
+        m: undefined, mH: undefined, m2: undefined,
+        noM: undefined, negM: undefined, negM2: undefined,
+      }
+    }
+    if (_.contains(
+      ['mV', 'mVH', 'mV2', 'noMV', 'negMV', 'negMV2'],
+      this.props,
+    )) {
+      cleanGutter = {
+        ...cleanGutter,
+        mV: undefined, mVH: undefined, mV2: undefined,
+        noMV: undefined, negMV: undefined, negMV2: undefined,
+      }
+    }
+    if (_.contains(
+      ['p', 'pH', 'p2', 'noP'],
+      this.props,
+    )) {
+      cleanGutter = {
+        ...cleanGutter,
+        p: undefined, pH: undefined, p2: undefined,
+        noP: undefined,
+      }
+    }
+    if (_.contains(
+      ['pV', 'pVH', 'pV2', 'noPV'],
+      this.props,
+    )) {
+      cleanGutter = {
+        ...cleanGutter,
+        pV: undefined, pVH: undefined, pV2: undefined,
+        noPV: undefined,
+      }
+    }
+
     const localGutters = {}
     const props = {
       ...extras,
+      ...cleanGutter,
       ...this.props,
     }
 
