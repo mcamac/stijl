@@ -1,13 +1,10 @@
 language: node_js
 node_js:
-- '5'
-before_install:
-- npm i -g npm
+- '6'
 notifications:
   email: false
 before_deploy:
 - npm run bates -- lib
-- npm run bates -- dist
 after_deploy:
 - npm run bates -- githubRelease
 deploy:
