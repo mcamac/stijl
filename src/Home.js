@@ -2,7 +2,7 @@
 import React from 'react'
 import * as ui from './ui'
 
-import withTheme from './withTheme'
+import {withTheme} from './withTheme'
 
 class Home extends React.Component {
   render() {
