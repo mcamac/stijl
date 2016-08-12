@@ -13,7 +13,10 @@
   "license": "MIT",
   "devDependencies": {
     "babel-loader": "^6.2.4",
-    "bates": "^2.1.0"
+    "bates": "^2.1.0",
+    "classnames": "^2.2.5",
+    "react": "^15.3.0",
+    "react-router-scroll": "^0.3.0"
   },
   "dependencies": {
     "lodash": "^4.9.0",

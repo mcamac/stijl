@@ -3,40 +3,35 @@
 // import 'whatwg-fetch'
 // import 'babel-regenerator-runtime'
 
+document.title = 'Stijl'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
-import _ from 'lodash/fp'
-import {Router, Route, browserHistory, IndexRoute, Redirect} from 'react-router'
-import {StyleRoot} from 'radium'
-import ThemeRoot from './ThemeRoot'
+import {Router, Route, browserHistory, IndexRoute, Redirect, applyRouterMiddleware} from 'react-router'
+import {useScroll} from 'react-router-scroll'
+
+import {insertStyleObject} from './styleSheet'
+import {theme, setTheme} from './theme'
 
 import Home from './Home'
 
-_.map = _.map.convert({cap: false})
+// theme setting
+insertStyleObject({
+  body: {background: 'white', minHeight: '100%', margin: 0},
+})
+setTheme({
+  ...theme,
+})
 
-document.title = 'Stijl'
-document.body.bgColor = 'white'
-
-const theme = {
-  base: {
-    flexBasisText: 600,
-    background: 'white',
-    hover: 'hsl(50, 50%, 20%)',
-  },
-}
-
-class App extends React.Component {
-  render() {
-    return <StyleRoot>
-      <ThemeRoot theme={theme}>
-        {this.props.children}
-      </ThemeRoot>
-    </StyleRoot>
-  }
+// This allows the theme to be hot-reloaded
+export default class App extends React.Component {
+  render() { return this.props.children }
 }
 
 ReactDOM.render(
-  <Router history={browserHistory} onUpdate={() => window.scrollTo(0, 0)}>
+  <Router history={browserHistory}
+    render={applyRouterMiddleware(useScroll())}
+  >
     <Route path='/' component={App}>
       <IndexRoute component={Home}/>
       <Route path='page'/>
