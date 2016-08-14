@@ -21,15 +21,15 @@ const propsToOmit = [
   'paddingVertical', 'paddingVerticalZero', 'paddingVerticalHalf', 'paddingVerticalDouble', 'negativePaddingVertical',
 ]
 
-export const createStijlComponent = (tag, name) => {
-  return class Stijl extends React.Component {
+export const createStijlComponent = (tag, name) =>
+  class Stijl extends React.Component {
     static displayName = name
     render() {
       const {props} = this
       const modifierClasses = {}
-      propsToOmit.forEach(d =>
+      propsToOmit.forEach(d => {
         modifierClasses[classes[d]] = props[d]
-      )
+      })
       const className = cn(
         `stijl-${name}`,
         classes.default,
@@ -39,9 +39,9 @@ export const createStijlComponent = (tag, name) => {
         props.className,
       )
       const passDownProps = {
-          className,
-          ..._.omit(propsToOmit, props),
-        }
+        className,
+        ..._.omit(propsToOmit, props),
+      }
       return React.createElement(
         tag,
         passDownProps,
@@ -49,7 +49,6 @@ export const createStijlComponent = (tag, name) => {
       )
     }
   }
-}
 
 const _A = createStijlComponent('a', 'A')
 const _ALink = createStijlComponent(RouterLink, 'A')

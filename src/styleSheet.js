@@ -22,7 +22,10 @@ const insertRule = (rule) =>
 
 const getHash = (input) => {
   const inputString = JSON.stringify(input)
-  var hash = 0, i, chr, len
+  var hash = 0
+  var i
+  var chr
+  var len
   if (inputString.length === 0) return hash
   for (i = 0, len = inputString.length; i < len; i++) {
     chr = inputString.charCodeAt(i)
@@ -39,7 +42,8 @@ const getRules = (hash, cssPairs) => {
     d => {
       if (/^\@/g.test(d[0])) return
       if (/^\w/g.test(d[0])) {
-        return base[d[0]] = d[1]
+        base[d[0]] = d[1]
+        return
       }
       const rule = `${hash}${d[0]} {${createMarkupForStyles(d[1])}}`
       rules.push(rule)

@@ -4,7 +4,7 @@ import {hsl} from 'd3-color'
 
 import {getClass} from './styleSheet'
 
-export let theme = {
+export const theme = {
   fontSize: 15,
   scale: [48, 32, 24, 20, 15, 14, 12], // H0, H1, H2, H3, H4, H5, H6
   gutter: 15 / 2,
@@ -240,7 +240,7 @@ const createStyles = (t) => {
       ...marginHorizontal,
       ...marginVerticalHalf,
     },
-    H6:{
+    H6: {
       fontSize: scale[6],
       fontFamily: fontFamilyDisplay,
       color,
@@ -265,10 +265,7 @@ const createStyles = (t) => {
         borderBottomWidth: 0,
         color: t.background,
         background: _.set('opacity', 0.35, hsl(t.color)),
-      }
-    },
-    Span: {
-      display: 'inline',
+      },
     },
     Link: {
       color: 'inherit',
