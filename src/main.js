@@ -10,8 +10,7 @@ import ReactDOM from 'react-dom'
 import {Router, Route, browserHistory, IndexRoute, Redirect, applyRouterMiddleware} from 'react-router'
 import {useScroll} from 'react-router-scroll'
 
-import {insertStyleObject} from './styleSheet'
-import {theme, setTheme} from './theme'
+import {insertStyleObject, theme, setTheme} from './index'
 
 import Home from './Home'
 

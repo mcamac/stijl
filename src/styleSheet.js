@@ -72,7 +72,7 @@ const genRules = (hash, css) => {
   return allRules
 }
 
-const getClass = (css) => {
+export const getClass = (css) => {
   if (!_.isPlainObject(css) || _.isEmpty(css)) return undefined
   const hash = getHash(css)
 
@@ -94,5 +94,3 @@ export const insertStyleObject = (styleObject) => {
     _.forEach(insertRule)
   )(styleObject)
 }
-
-export default getClass

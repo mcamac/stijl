@@ -4,9 +4,9 @@ import assert from 'assert'
 
 import * as stijl from './index'
 
-test('stijl.withTheme', () => {
-  assert.ok(stijl.withTheme)
+test('stijl', () => {
+  assert.ok(stijl.ui)
 })
-test('stijl.WithTheme', () => {
-  assert.ok(stijl.WithTheme)
+test('stijl', () => {
+  assert.ok(stijl.getClass)
 })

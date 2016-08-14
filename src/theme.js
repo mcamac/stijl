@@ -1,6 +1,8 @@
 
 import _ from 'lodash/fp'
-import getClass from './styleSheet'
+import {hsl} from 'd3-color'
+
+import {getClass} from './styleSheet'
 
 export let theme = {
   fontSize: 15,
@@ -9,9 +11,9 @@ export let theme = {
   fontFamily: 'Open Sans',
   fontFamilyDisplay: 'Open Sans',
   fontFamilyCode: 'Inconsolata',
-  color: '#242426',
-  background: '#eee',
-  hover: 'hsl(0, 60%, 52%)',
+  color: 'black',
+  background: 'white',
+  hover: 'hsl(0, 0%, 45%)',
   focus: 'hsl(32, 78%, 55%)',
   borderWidth: 2,
   borderRadius: 0,
@@ -20,110 +22,275 @@ export let theme = {
   flexBasisText: 800,
 }
 
-const createStyles = (t) => ({
-  default: {
-    boxSizing: 'borderBox',
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'stretch',
-    flexShrink: 0,
-    alignContent: 'flex-start',
-    border: '0 solid black',
-    margin: 0,
-    padding: 0,
-    minWidth: 0,
-  },
-  mh: {
-    marginLeft: `${t.gutter}px !important`,
-    marginRight: `${t.gutter}px !important`,
-  },
-  mv: {
-    marginTop: `${t.gutter}px !important`,
-    marginBottom: `${t.gutter}px !important`,
-  },
-  Window: {
-    fontFamily: t.fontFamily,
-    color: t.color,
-  },
-  Col: {
+const createStyles = (t) => {
+  const {gutter, color, background, lineHeight, scale, fontSize, fontFamily, fontFamilyDisplay, borderRadius} = t
+  const marginHorizontal = {
+    marginLeft: gutter,
+    marginRight: gutter,
+  }
+  const marginVertical = {
+    marginTop: gutter,
+    marginBottom: gutter,
+  }
+  const marginVerticalHalf = {
+    marginTop: gutter / 2,
+    marginBottom: gutter / 2,
+  }
+  return {
+    default: {
+      boxSizing: 'borderBox',
+      position: 'relative',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'stretch',
+      flexShrink: 0,
+      alignContent: 'flex-start',
+      border: '0 solid black',
+      margin: 0,
+      padding: 0,
+      minWidth: 0,
+    },
 
-  },
-  Span: {
-    display: 'inline',
-  },
-  Row: {
-    flexDirection: 'row',
-  },
-  H0: {
-    fontFamily: t.fontFamily,
-    fontSize: t.scale[0],
-    color: t.color,
-    marginLeft: t.gutter,
-    marginRight: t.gutter,
-  },
-  H1: {
-    fontFamily: t.fontFamily,
-    fontSize: t.scale[1],
-    color: t.color,
-    marginLeft: t.gutter,
-    marginRight: t.gutter,
-  },
-  H2: {
-    fontFamily: t.fontFamily,
-    fontSize: t.scale[2],
-    color: t.color,
-    marginLeft: t.gutter,
-    marginRight: t.gutter,
-  },
-  H3: {
-    fontFamily: t.fontFamily,
-    fontSize: t.scale[3],
-    color: t.color,
-    marginLeft: t.gutter,
-    marginRight: t.gutter,
-  },
-  H4: {
-    fontFamily: t.fontFamily,
-    fontSize: t.scale[4],
-    color: t.color,
-    marginLeft: t.gutter,
-    marginRight: t.gutter,
-  },
-  H5: {
-    fontFamily: t.fontFamily,
-    fontSize: t.scale[5],
-    color: t.color,
-    marginLeft: t.gutter,
-    marginRight: t.gutter,
-  },
-  H6:{
-    fontFamily: t.fontFamily,
-    fontSize: t.scale[6],
-    color: t.color,
-    marginLeft: t.gutter,
-    marginRight: t.gutter,
-  },
-  P: {
-    fontFamily: t.fontFamily,
-    fontSize: t.fontSize,
-    color: t.color,
-    marginLeft: t.gutter,
-    marginRight: t.gutter,
-  },
-  A: {
+    margin: {
+      margin: `${gutter}px !important`,
+    },
+    marginAuto: {
+      margin: 'auto !important',
+    },
+    marginZero: {
+      margin: '0px !important',
+    },
+    marginHalf: {
+      margin: `${gutter / 2}px !important`,
+    },
+    marginDouble: {
+      margin: `${gutter * 2}px !important`,
+    },
+    marginHorizontal: {
+      marginLeft: `${gutter}px !important`,
+      marginRight: `${gutter}px !important`,
+    },
+    marginHorizontalAuto: {
+      marginLeft: 'auto !important',
+      marginRight: 'auto !important',
+    },
+    marginHorizontalZero: {
+      marginLeft: '0px !important',
+      marginRight: '0px !important',
+    },
+    marginHorizontalHalf: {
+      marginLeft: `${gutter / 2}px !important`,
+      marginRight: `${gutter / 2}px !important`,
+    },
+    marginHorizontalDouble: {
+      marginLeft: `${gutter * 2}px !important`,
+      marginRight: `${gutter * 2}px !important`,
+    },
+    negativeMarginHorizontal: {
+      marginLeft: `${-gutter}px !important`,
+      marginRight: `${-gutter}px !important`,
+    },
+    marginVertical: {
+      marginTop: `${gutter}px !important`,
+      marginBottom: `${gutter}px !important`,
+    },
+    marginVerticalAuto: {
+      marginTop: 'auto !important',
+      marginBottom: 'auto !important',
+    },
+    marginVerticalZero: {
+      marginTop: '0px !important',
+      marginBottom: '0px !important',
+    },
+    marginVerticalHalf: {
+      marginTop: `${gutter / 2}px !important`,
+      marginBottom: `${gutter / 2}px !important`,
+    },
+    marginVerticalDouble: {
+      marginTop: `${gutter * 2}px !important`,
+      marginBottom: `${gutter * 2}px !important`,
+    },
+    negativeMarginVertical: {
+      marginTop: `${-gutter}px !important`,
+      marginBottom: `${-gutter}px !important`,
+    },
 
-  },
-  Input: {
+    padding: {
+      paddingLeft: `${gutter}px !important`,
+      paddingRight: `${gutter}px !important`,
+      paddingTop: `${gutter}px !important`,
+      paddingBottom: `${gutter}px !important`,
+    },
+    paddingZero: {
+      paddingLeft: '0px !important',
+      paddingRight: '0px !important',
+      paddingTop: '0px !important',
+      paddingBottom: '0px !important',
+    },
+    paddingHalf: {
+      paddingLeft: `${gutter / 2}px !important`,
+      paddingRight: `${gutter / 2}px !important`,
+      paddingTop: `${gutter / 2}px !important`,
+      paddingBottom: `${gutter / 2}px !important`,
+    },
+    paddingDouble: {
+      paddingLeft: `${gutter * 2}px !important`,
+      paddingRight: `${gutter * 2}px !important`,
+      paddingTop: `${gutter * 2}px !important`,
+      paddingBottom: `${gutter * 2}px !important`,
+    },
+    paddingHorizontal: {
+      paddingLeft: `${gutter}px !important`,
+      paddingRight: `${gutter}px !important`,
+    },
+    paddingHorizontalZero: {
+      paddingLeft: '0px !important',
+      paddingRight: '0px !important',
+    },
+    paddingHorizontalHalf: {
+      paddingLeft: `${gutter / 2}px !important`,
+      paddingRight: `${gutter / 2}px !important`,
+    },
+    paddingHorizontalDouble: {
+      paddingLeft: `${gutter * 2}px !important`,
+      paddingRight: `${gutter * 2}px !important`,
+    },
+    negativePaddingHorizontal: {
+      paddingLeft: `${-gutter}px !important`,
+      paddingRight: `${-gutter}px !important`,
+    },
+    paddingVertical: {
+      paddingTop: `${gutter}px !important`,
+      paddingBottom: `${gutter}px !important`,
+    },
+    paddingVerticalZero: {
+      paddingTop: '0px !important',
+      paddingBottom: '0px !important',
+    },
+    paddingVerticalHalf: {
+      paddingTop: `${gutter / 2}px !important`,
+      paddingBottom: `${gutter / 2}px !important`,
+    },
+    paddingVerticalDouble: {
+      paddingTop: `${gutter * 2}px !important`,
+      paddingBottom: `${gutter * 2}px !important`,
+    },
+    negativePaddingVertical: {
+      paddingTop: `${-gutter}px !important`,
+      paddingBottom: `${-gutter}px !important`,
+    },
 
-  },
-  Select: {
+    Window: {
+      background,
+      fontFamily,
+      color,
+    },
+    Col: {
 
-  },
-  Button: {
+    },
+    Span: {
+      display: 'inline',
+    },
+    Row: {
+      flexDirection: 'row',
+    },
+    RowWrap: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+    },
+    H0: {
+      fontSize: scale[0],
+      fontFamily: fontFamilyDisplay,
+      color,
+      ...marginHorizontal,
+      ...marginVerticalHalf,
+    },
+    H1: {
+      fontSize: scale[1],
+      fontFamily: fontFamilyDisplay,
+      color,
+      ...marginHorizontal,
+      ...marginVerticalHalf,
+    },
+    H2: {
+      fontSize: scale[2],
+      fontFamily: fontFamilyDisplay,
+      color,
+      ...marginHorizontal,
+      ...marginVerticalHalf,
+    },
+    H3: {
+      fontSize: scale[3],
+      fontFamily: fontFamilyDisplay,
+      color,
+      ...marginHorizontal,
+      ...marginVerticalHalf,
+    },
+    H4: {
+      fontSize: scale[4],
+      fontFamily: fontFamilyDisplay,
+      color,
+      ...marginHorizontal,
+      ...marginVerticalHalf,
+    },
+    H5: {
+      fontSize: scale[5],
+      fontFamily: fontFamilyDisplay,
+      color,
+      ...marginHorizontal,
+      ...marginVerticalHalf,
+    },
+    H6:{
+      fontSize: scale[6],
+      fontFamily: fontFamilyDisplay,
+      color,
+      ...marginHorizontal,
+      ...marginVerticalHalf,
+    },
+    P: {
+      display: 'inline',
+      fontSize,
+      lineHeight,
+      fontFamily,
+      color,
+      ...marginHorizontal,
+      ...marginVertical,
+    },
+    A: {
+      display: 'inline',
+      textDecoration: 'none',
+      borderBottomWidth: 1,
+      color,
+      ':hover': {
+        borderBottomWidth: 0,
+        color: t.background,
+        background: _.set('opacity', 0.35, hsl(t.color)),
+      }
+    },
+    Span: {
+      display: 'inline',
+    },
+    Link: {
+      color: 'inherit',
+      textDecoration: 'inherit',
+    },
+    Input: {
+      borderRadius,
+      fontSize, color,
+      ...marginHorizontal,
+      borderWidth: t.borderWidth,
+      WebkitAppearance: 'none',
+      padding: t.gutter,
+      outline: 0,
+    },
+    Select: {
 
-  },
-})
+    },
+    Button: {
+
+    },
+  }
+}
 
 const getClassesFromStyles = (styles) => {
   const classes = {}
