@@ -5,21 +5,20 @@ import {hsl} from 'd3-color'
 import {getClass} from './styleSheet'
 
 export const theme = {
-  fontSize: 15,
-  scale: [48, 32, 24, 20, 15, 14, 12], // H0, H1, H2, H3, H4, H5, H6
-  gutter: 15 / 2,
+  fontSize: 14,
+  scale: [40, 34, 28, 22, 18, 14, 12], // H0, H1, H2, H3, H4, H5, H6
+  gutter: 14 / 2,
   fontFamily: 'Open Sans',
   fontFamilyDisplay: 'Open Sans',
   fontFamilyCode: 'Inconsolata',
   color: 'black',
   background: 'white',
-  hover: 'hsl(0, 0%, 45%)',
-  focus: 'hsl(32, 78%, 55%)',
-  borderWidth: 2,
+  action: 'hsl(200, 0%, 50%)',
+  borderWidth: 1,
   borderRadius: 0,
-  backgroundCard: 'hsl(195, 3%, 78%)',
+  backgroundCard: 'hsl(0, 0%, 94%)',
   lineHeight: 1.4,
-  flexBasisText: 800,
+  flexBasisText: 600,
 }
 
 const createStyles = (t) => {
@@ -179,7 +178,18 @@ const createStyles = (t) => {
       paddingTop: `${-gutter}px !important`,
       paddingBottom: `${-gutter}px !important`,
     },
-
+    Space: {
+      flexBasis: gutter,
+    },
+    SpaceHalf: {
+      flexBasis: gutter / 2,
+    },
+    SpaceDouble: {
+      flexBasis: gutter * 2,
+    },
+    SpaceTriple: {
+      flexBasis: gutter * 2,
+    },
     Window: {
       background,
       fontFamily,
@@ -191,6 +201,40 @@ const createStyles = (t) => {
     Span: {
       display: 'inline',
     },
+    Pre: {
+      fontSize: t.scale[6],
+      background: t.backgroundCard,
+      lineHeight,
+      fontFamily,
+      color,
+      display: 'inline',
+      ...marginHorizontal,
+      ...marginVertical,
+      padding: gutter * 2,
+      overflow: 'auto',
+      '>code': {
+        padding: 0,
+      }
+    },
+    Code: {
+      display: 'inline',
+      whiteSpace: 'pre',
+      fontFamily: t.fontFamilyCode,
+      background: t.backgroundCard,
+      padding: gutter / 2,
+    },
+    Blockquote: {
+      borderLeftWidth: gutter,
+      borderColor: t.backgroundCard,
+      display: 'inline',
+      padding: gutter,
+      fontSize,
+      lineHeight,
+      fontFamily,
+      color,
+      ...marginHorizontal,
+      ...marginVertical,
+    },
     Row: {
       flexDirection: 'row',
     },
@@ -199,6 +243,7 @@ const createStyles = (t) => {
       flexWrap: 'wrap',
     },
     H0: {
+      display: 'inline',
       fontSize: scale[0],
       fontFamily: fontFamilyDisplay,
       color,
@@ -206,6 +251,7 @@ const createStyles = (t) => {
       ...marginVerticalHalf,
     },
     H1: {
+      display: 'inline',
       fontSize: scale[1],
       fontFamily: fontFamilyDisplay,
       color,
@@ -213,6 +259,7 @@ const createStyles = (t) => {
       ...marginVerticalHalf,
     },
     H2: {
+      display: 'inline',
       fontSize: scale[2],
       fontFamily: fontFamilyDisplay,
       color,
@@ -220,6 +267,7 @@ const createStyles = (t) => {
       ...marginVerticalHalf,
     },
     H3: {
+      display: 'inline',
       fontSize: scale[3],
       fontFamily: fontFamilyDisplay,
       color,
@@ -227,6 +275,7 @@ const createStyles = (t) => {
       ...marginVerticalHalf,
     },
     H4: {
+      display: 'inline',
       fontSize: scale[4],
       fontFamily: fontFamilyDisplay,
       color,
@@ -234,6 +283,7 @@ const createStyles = (t) => {
       ...marginVerticalHalf,
     },
     H5: {
+      display: 'inline',
       fontSize: scale[5],
       fontFamily: fontFamilyDisplay,
       color,
@@ -241,6 +291,7 @@ const createStyles = (t) => {
       ...marginVerticalHalf,
     },
     H6: {
+      display: 'inline',
       fontSize: scale[6],
       fontFamily: fontFamilyDisplay,
       color,
@@ -256,16 +307,17 @@ const createStyles = (t) => {
       ...marginHorizontal,
       ...marginVertical,
     },
+    Hr: {
+      borderBottomWidth: t.borderWidth,
+      ...marginHorizontal,
+      ...marginVertical,
+    },
     A: {
       display: 'inline',
       textDecoration: 'none',
-      borderBottomWidth: 1,
-      color,
-      ':hover': {
-        borderBottomWidth: 0,
-        color: t.background,
-        background: _.set('opacity', 0.35, hsl(t.color)),
-      },
+      borderColor: t.action,
+      borderBottomWidth: t.borderWidth,
+      color: t.action,
     },
     Link: {
       color: 'inherit',
@@ -275,16 +327,61 @@ const createStyles = (t) => {
       borderRadius,
       fontSize, color,
       ...marginHorizontal,
+      ...marginVerticalHalf,
       borderWidth: t.borderWidth,
+      borderColor: t.action,
       WebkitAppearance: 'none',
+      MozAppearance: 'none',
       padding: t.gutter,
       outline: 0,
     },
     Select: {
-
+      ':after': {
+        content: '" "',
+        position: 'absolute',
+        right: fontSize + gutter / 2,
+        top: '-0.2rem',
+        bottom: 0,
+        margin: 'auto',
+        width: Math.abs(fontSize / 2),
+        height: Math.abs(fontSize / 2),
+        borderBottom: `${t.borderWidth}px solid ${t.action}`,
+        borderRight: `${t.borderWidth}px solid ${t.action}`,
+        WebkitTransform: 'rotate(45deg)',
+        MsTransform: 'rotate(45deg)',
+        transform: 'rotate(45deg)',
+      },
+      ' > select': {
+        cursor: 'pointer',
+        borderRadius,
+        fontSize,
+        ...marginHorizontal,
+        ...marginVerticalHalf,
+        color: t.action,
+        borderWidth: t.borderWidth,
+        borderColor: t.action,
+        background: t.background,
+        borderRadius: t.borderRadius,
+        WebkitAppearance: 'none',
+        MozAppearance: 'none',
+        padding: t.gutter,
+        outline: 0,
+      },
     },
     Button: {
-
+      borderRadius,
+      fontSize,
+      cursor: 'pointer',
+      color: background,
+      background: t.action,
+      borderColor: t.action,
+      ...marginHorizontal,
+      ...marginVerticalHalf,
+      borderWidth: t.borderWidth,
+      padding: t.gutter,
+      WebkitAppearance: 'none',
+      MozAppearance: 'none',
+      outline: 0,
     },
   }
 }
