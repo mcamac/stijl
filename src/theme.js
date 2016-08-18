@@ -398,11 +398,11 @@ export let styles = createStyles(theme)
 export let classes = undefined // getClassesFromStyles(styles)
 
 
-export const setTheme = (_theme) => {
+export const setTheme = (_theme = theme) => {
   styles = createStyles(_theme)
   classes = getClassesFromStyles(styles)
 }
 
-export const setStyles = (_tagStyles) => {
+export const setStyles = (_tagStyles = styles) => {
   classes = getClassesFromStyles(_tagStyles)
 }
