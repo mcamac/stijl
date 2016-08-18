@@ -324,6 +324,7 @@ const createStyles = (t) => {
       textDecoration: 'inherit',
     },
     Input: {
+      background,
       borderRadius,
       fontSize, color,
       ...marginHorizontal,
@@ -360,7 +361,7 @@ const createStyles = (t) => {
         color: t.action,
         borderWidth: t.borderWidth,
         borderColor: t.action,
-        background: t.background,
+        background,
         borderRadius: t.borderRadius,
         WebkitAppearance: 'none',
         MozAppearance: 'none',
