@@ -21,7 +21,7 @@ export const theme = {
   flexBasisText: 600,
 }
 
-const createStyles = (t) => {
+export const createStyles = (t) => {
   const {gutter, color, background, lineHeight, scale, fontSize, fontFamily, fontFamilyDisplay, borderRadius} = t
   const marginHorizontal = {
     marginLeft: gutter,
@@ -308,6 +308,7 @@ const createStyles = (t) => {
       ...marginVertical,
     },
     Hr: {
+      borderColor: color,
       borderBottomWidth: t.borderWidth,
       ...marginHorizontal,
       ...marginVertical,
@@ -337,6 +338,9 @@ const createStyles = (t) => {
       outline: 0,
     },
     Select: {
+      fontSize,
+      ...marginHorizontal,
+      ...marginVerticalHalf,
       ':after': {
         content: '" "',
         position: 'absolute',
@@ -355,9 +359,6 @@ const createStyles = (t) => {
       ' > select': {
         cursor: 'pointer',
         borderRadius,
-        fontSize,
-        ...marginHorizontal,
-        ...marginVerticalHalf,
         color: t.action,
         borderWidth: t.borderWidth,
         borderColor: t.action,
