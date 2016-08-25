@@ -6,6 +6,8 @@ import {getClassName} from './styleSheet'
 import {theme, createCssObject} from './theme'
 import {ui} from './base'
 
+const vanillaTheme = _.clone(theme)
+
 export const classNames = {}
 
 const getClassesFromCssObject = (cssObject) => {
@@ -19,6 +21,7 @@ const getClassesFromCssObject = (cssObject) => {
 export const start = (
   themeExtensions = [], cssObjectExtensions = [], uiExtensions = []
 ) => {
+  merge(theme, vanillaTheme)
   themeExtensions.forEach(d => merge(theme, d))
 
   const cssObject = createCssObject(theme)
