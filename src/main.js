@@ -14,20 +14,10 @@ import {insertCssObject, start} from './index'
 
 import Home from './Home'
 
-const kExt = {
-  theme: {
-    color: '#eee',
-    background: 'rgb(36, 36, 38)',
-    backgroundCard: '#313335',
-    action: '#50afc6',
-  },
-}
-
-// theme setting
 insertCssObject({
   body: {background: 'white', minHeight: '100%', margin: 0},
 })
-start([kExt])
+start()
 
 // This allows the theme to be hot-reloaded
 export default class App extends React.Component {

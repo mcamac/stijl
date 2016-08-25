@@ -16,13 +16,15 @@ const getClassesFromCssObject = (cssObject) => {
   return _classNames
 }
 
-export const start = (extensions = []) => {
-  extensions.forEach(d => merge(theme, d.theme))
+export const start = (
+  themeExtensions = [], cssObjectExtensions = [], uiExtensions = []
+) => {
+  themeExtensions.forEach(d => merge(theme, d))
 
   const cssObject = createCssObject(theme)
-  extensions.forEach(d => merge(theme, d.cssObject))
+  cssObjectExtensions.forEach(d => merge(cssObject, d))
 
   merge(classNames, getClassesFromCssObject(cssObject))
 
-  extensions.forEach(d => merge(ui, d.ui))
+  uiExtensions.forEach(d => merge(ui, d))
 }
