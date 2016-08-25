@@ -323,7 +323,7 @@ export const createCssObject = (t) => {
       textDecoration: 'inherit',
     },
     Input: {
-      background,
+      background: 'transparent',
       borderRadius,
       fontSize, color,
       ...marginHorizontal,
@@ -336,7 +336,6 @@ export const createCssObject = (t) => {
       outline: 0,
     },
     Select: {
-      fontSize,
       ...marginHorizontal,
       ...marginVerticalHalf,
       ':after': {
@@ -355,12 +354,13 @@ export const createCssObject = (t) => {
         transform: 'rotate(45deg)',
       },
       ' > select': {
+        background: 'transparent',
+        fontSize,
         cursor: 'pointer',
         borderRadius,
         color: t.action,
         borderWidth: t.borderWidth,
         borderColor: t.action,
-        background,
         borderRadius: t.borderRadius,
         WebkitAppearance: 'none',
         MozAppearance: 'none',
