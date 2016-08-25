@@ -189,6 +189,7 @@ export const createCssObject = (t) => {
       background,
       fontFamily,
       color,
+      minHeight: '100%',
     },
     Col: {
 
