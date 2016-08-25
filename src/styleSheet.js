@@ -76,7 +76,7 @@ const genRules = (hash, css) => {
   return allRules
 }
 
-export const getClass = (css) => {
+export const getClassName = (css) => {
   if (!_.isPlainObject(css) || _.isEmpty(css)) return undefined
   const hash = getHash(css)
 
@@ -90,7 +90,7 @@ export const getClass = (css) => {
 }
 
 // {selector: style}
-export const insertStyleObject = (styleObject) => {
+export const insertCssObject = (styleObject) => {
   _.pipe(
     _.toPairs,
     _.map(d => genRules(d[0], d[1])),

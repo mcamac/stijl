@@ -2,8 +2,6 @@
 import _ from 'lodash/fp'
 import {hsl} from 'd3-color'
 
-import {getClass} from './styleSheet'
-
 export const theme = {
   fontSize: 14,
   scale: [40, 34, 28, 22, 18, 14, 12], // H0, H1, H2, H3, H4, H5, H6
@@ -21,7 +19,7 @@ export const theme = {
   flexBasisText: 600,
 }
 
-export const createStyles = (t) => {
+export const createCssObject = (t) => {
   const {gutter, color, background, lineHeight, scale, fontSize, fontFamily, fontFamilyDisplay, borderRadius} = t
   const marginHorizontal = {
     marginLeft: gutter,
@@ -386,25 +384,4 @@ export const createStyles = (t) => {
       outline: 0,
     },
   }
-}
-
-const getClassesFromStyles = (styles) => {
-  const classes = {}
-  _.each(d => {
-    classes[d[0]] = getClass(d[1])
-  }, _.toPairs(styles))
-  return classes
-}
-
-export let styles = createStyles(theme)
-export let classes = undefined // getClassesFromStyles(styles)
-
-
-export const setTheme = (_theme = theme) => {
-  styles = createStyles(_theme)
-  classes = getClassesFromStyles(styles)
-}
-
-export const setStyles = (_tagStyles = styles) => {
-  classes = getClassesFromStyles(_tagStyles)
 }

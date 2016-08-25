@@ -10,17 +10,24 @@ import ReactDOM from 'react-dom'
 import {Router, Route, browserHistory, IndexRoute, Redirect, applyRouterMiddleware} from 'react-router'
 import {useScroll} from 'react-router-scroll'
 
-import {insertStyleObject, theme, setTheme} from './index'
+import {insertCssObject, start} from './index'
 
 import Home from './Home'
 
+const kExt = {
+  theme: {
+    color: '#eee',
+    background: 'rgb(36, 36, 38)',
+    backgroundCard: '#313335',
+    action: '#50afc6',
+  },
+}
+
 // theme setting
-insertStyleObject({
+insertCssObject({
   body: {background: 'white', minHeight: '100%', margin: 0},
 })
-setTheme({
-  ...theme,
-})
+start([kExt])
 
 // This allows the theme to be hot-reloaded
 export default class App extends React.Component {
@@ -31,7 +38,7 @@ ReactDOM.render(
   <Router history={browserHistory}
     render={applyRouterMiddleware(useScroll())}
   >
-    <Route path='/' component={App}>
+    <Route path='/'>
       <IndexRoute component={Home}/>
       <Route path='page'/>
     </Route>
