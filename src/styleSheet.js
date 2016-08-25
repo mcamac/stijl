@@ -40,7 +40,7 @@ const getRules = (hash, cssPairs) => {
   const rules = []
   _.forEach(
     d => {
-      if (/^\@/g.test(d[0])) return
+      if (/^@/g.test(d[0])) return
       if (/^\w/g.test(d[0])) {
         base[d[0]] = d[1]
         return
@@ -64,7 +64,7 @@ const genRules = (hash, css) => {
   const mediaQueries = []
   const cssPairs = _.toPairs(css)
   _.forEach(
-    d => {if (/^\@/g.test(d[0])) mediaQueries.push(d)},
+    d => {if (/^@/g.test(d[0])) mediaQueries.push(d)},
     cssPairs,
   )
   const rules = getRules(hash, cssPairs)

@@ -59,19 +59,19 @@ export const createStijlComponent = (tag, name, wrapped) =>
     }
   }
 
-const _A = createStijlComponent('a', 'A')
-const _ALink = createStijlComponent(RouterLink, 'A')
+const A = createStijlComponent('a', 'A')
+const Link = createStijlComponent(RouterLink, 'A')
 
 const SmartLink = (props) => {
   if (props.href && /^http/.test(props.href)) {
-    return <_A {...props}/>
+    return <A {...props}/>
   }
   if (props.href && !/^http/.test(props.href)) {
-    return <_ALink {..._.omit('href', props)}
+    return <Link {..._.omit('href', props)}
       to={props.href}
     />
   }
-  return <_A {...props}/>
+  return <A {...props}/>
 }
 
 const stijlTags = [
