@@ -51,18 +51,38 @@ class Home extends React.Component {
 
 ## Named Exports
 
-##### `start(themeExtensions: ?Array<Object>, cssObjectExtensions: ?Array<Object>, uiExtensions: ?Array<Object>)`
+#### `start(themeExtensions: ?Array<Object>, cssObjectExtensions: ?Array<Object>, uiExtensions: ?Array<Object>)`
 
 Before using the UI components, call `start()` with any extensions you want to apply.
 
 - [Extensions tutorial](#extensions)
 
-##### `ui: Object<{[componentName]: ReactClass}>`
+#### `ui: Object<{[componentName]: ReactClass}>`
 
-All components in `ui` accept the following props:  
+All components in `ui` accept all the props that html tags can accept, they receive a default element style and a tag style created using the theme object. More info: ["Theme Logic"](/). 
+
+**props**:  
+- `css: Object`  
+Add a new style to the object. It accepts anything that can go into React inline styles, it can also handle css selectors, pseudo-classes and media-queries. Under the hood this object is converted to one or more css rules with hashed class names, if those rules don't already exist they are inserted into the document, the resulting class names are then added to the component.  
+More info: ["The css object"](/).  
 ```
-css: Object
-'marginAuto',
+<Col css={{
+  color: 'blue',
+  flexGrow: 1,
+  height: 100,
+  '> p': {fontWeight: 'bold},
+  ':hover': {background: 'lightgray'},
+  '@media (max-width: 600px)': {height: 50},
+}}/>
+```
+- `marginAuto: bool`  
+Set all the margins to auto  
+- `marginZero: bool`  
+Set all margins to zero  
+- `margin: bool`  
+Set all the margins to the amount of the gutter in the `theme`
+
+
 
 'margin', 'marginZero', 'marginHalf', 'marginDouble',
 'marginHorizontal', 'marginHorizontalZero', 'marginHorizontalHalf', 'marginHorizontalDouble', 'negativeMarginHorizontal',
@@ -71,7 +91,7 @@ css: Object
 'padding', 'paddingZero', 'paddingHalf', 'paddingDouble',
 'paddingHorizontal', 'paddingHorizontalZero', 'paddingHorizontalHalf', 'paddingHorizontalDouble', 'negativePaddingHorizontal',
 'paddingVertical', 'paddingVerticalZero', 'paddingVerticalHalf', 'paddingVerticalDouble', 'negativePaddingVertical'
-```
+
 
 `ui.<Component>`:  
 H0, H1, H2, H3, H4, H5, H6, P, A, Hr,  
