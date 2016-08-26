@@ -16,6 +16,7 @@ import Home from './Home'
 
 insertCssObject({
   body: {background: 'white', minHeight: '100%', margin: 0},
+  '#root': {minHeight: '100%'},
 })
 start()
 
