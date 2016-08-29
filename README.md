@@ -3,7 +3,9 @@
 
 Configurable and extendable UI components for React (beta).
 
-This lib features UI and layout components that are easy to configure and extend both locally as globally. On the component level they accept a css object that can contain any styles, css selectors, pseudo-classes and media-queries; special props and tags can be used for quickly executing complex layouts. On the global level, the theme of all components can be modified and extended.
+This lib features UI and layout components that are easy to configure and extend both locally as globally.  
+The components accept a css object that can contain any styles, css selectors, pseudo-classes and media-queries; special props and tags can be used for quickly executing complex layouts.  
+On the global level, the theme of all components can be modified and extended.
 
 ```bash
 $ npm i stijl --S
@@ -12,6 +14,7 @@ $ npm i stijl --S
 ```jsx
 import React from 'react'
 import {start, ui, theme} from 'stijl'
+import {color} from 'd3-color'
 
 const myTheme = {
   background: 'lightgray',
@@ -31,11 +34,12 @@ class Home extends React.Component {
         css={{
           background: theme.backgroundCard,
           // it accepts css selectors, pseudo-classes and media-queries
-          ':hover': {background: 'red'},
+          '> p': {fontWeight: 'bold},
+          ':hover': {background: color(theme.action).brighter(1)},
           '@media (max-width: 600px)': {background: 'blue'},
         }}
         // special props are available for consistent configuration
-        // of gutters and spacing
+        // of gutters and spacing according to the theme
         margin
         padding
       >
