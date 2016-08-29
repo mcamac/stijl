@@ -4,7 +4,7 @@
 Configurable and extendable UI components for React (beta).
 
 This lib features UI and layout components that are easy to configure and extend both locally as globally.  
-The components accept a css object that can contain any styles, css selectors, pseudo-classes and media-queries; special props and tags can be used for quickly executing complex layouts.  
+The components accept a css object that can contain any styles, css selectors, pseudo-classes and media-queries; special props and tags can be used for quickly put together complex layouts.  
 On the global level, the theme of all components can be modified and extended.
 
 ```bash
@@ -16,6 +16,8 @@ import React from 'react'
 import {start, ui, theme} from 'stijl'
 import {color} from 'd3-color'
 
+// we will extend the default theme with a new
+// background and action colors
 const myTheme = {
   background: 'lightgray',
   action: 'steelblue',
@@ -28,9 +30,9 @@ start([myTheme])
 class Home extends React.Component {
   render() {
     return <ui.Row>
-      // All components have default flex-box styles
+      // All components come with default flex-box styles
       <ui.Col
-        // do custom style using the css prop
+        // you can use the css prop for doing custom local styles
         css={{
           background: theme.backgroundCard,
           // it accepts css selectors, pseudo-classes and media-queries
