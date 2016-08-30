@@ -29,8 +29,8 @@ start([myTheme])
 
 class Home extends React.Component {
   render() {
+    // All components come with default flex-box styles
     return <ui.Row>
-      // All components come with default flex-box styles
       <ui.Col
         // you can use the css prop for doing custom local styles
         css={{
