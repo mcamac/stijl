@@ -175,10 +175,10 @@ export const createCssObject = (t) => {
     },
     flexGrow: {
       flexGrow: 1,
-    }
+    },
     flexShrink: {
       flexShrink: 1,
-    }
+    },
     Space: {
       flexBasis: gutter,
     },
