@@ -173,6 +173,12 @@ export const createCssObject = (t) => {
       paddingTop: `${-gutter}px !important`,
       paddingBottom: `${-gutter}px !important`,
     },
+    flexGrow: {
+      flexGrow: 1,
+    }
+    flexShrink: {
+      flexShrink: 1,
+    }
     Space: {
       flexBasis: gutter,
     },

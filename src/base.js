@@ -19,6 +19,8 @@ const propsToOmit = [
   'padding', 'paddingZero', 'paddingHalf', 'paddingDouble',
   'paddingHorizontal', 'paddingHorizontalZero', 'paddingHorizontalHalf', 'paddingHorizontalDouble', 'negativePaddingHorizontal',
   'paddingVertical', 'paddingVerticalZero', 'paddingVerticalHalf', 'paddingVerticalDouble', 'negativePaddingVertical',
+
+  'flexGrow', 'flexShrink',
 ]
 
 export const createStijlComponent = (tag, name, wrapped) =>
