@@ -8,7 +8,7 @@ import {getClassName} from './styleSheet'
 import {classNames} from './start'
 
 const propsToOmit = [
-  'children', 'css',
+  'children', 'className', 'css',
 
   'marginAuto',
 
@@ -41,8 +41,8 @@ export const createStijlComponent = (tag, name, wrapped) =>
         props.className,
       )
       const passDownProps = {
-        className,
         ..._.omit(propsToOmit, props),
+        className,
       }
       if (wrapped) {
         return <div className={className}>
