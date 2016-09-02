@@ -37,10 +37,10 @@ export const createCssObject = (theme) => {
     paddingLeft: gutter,
     paddingRight: gutter,
   }
-  const paddingVertical = {
-    paddingTop: gutter,
-    paddingBottom: gutter,
-  }
+  // const paddingVertical = {
+  //   paddingTop: gutter,
+  //   paddingBottom: gutter,
+  // }
   const paddingVerticalHalf = {
     paddingTop: gutter / 2,
     paddingBottom: gutter / 2,

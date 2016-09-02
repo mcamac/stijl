@@ -89,6 +89,7 @@ const stijlTags = [
   ['p', 'P'],
   ['hr', 'Hr'],
   [RouterLink, 'Link'],
+  [SmartLink, 'A'],
   ['ul', 'Ul'],
   ['ol', 'Ol'],
   ['li', 'Li'],
@@ -116,5 +117,13 @@ const stijlTags = [
   ['select', 'Select', true],
 ]
 
-export const ui = {A: SmartLink}
+export const ui = {}
 stijlTags.forEach(d => ui[d[1]] = createStijlComponent(...d))
+
+export const componentHash = {}
+stijlTags.forEach(d => {
+  if (d[0] === 'div' || !_.isString(d[0])) {
+    componentHash[d[1]] = ui[d[1]]
+  }
+  componentHash[d[0]] = ui[d[1]]
+})

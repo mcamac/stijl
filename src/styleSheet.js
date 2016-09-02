@@ -3,6 +3,10 @@ import _ from 'lodash/fp'
 import {createMarkupForStyles} from 'react/lib/CSSPropertyOperations'
 
 const getSheet = () => {
+  if (!global.document) return {
+    insertRule: d => undefined,
+    cssRules: [],
+  }
   const docStyle = document.getElementById('__stijl__')
   if (docStyle) return docStyle.sheet
 
