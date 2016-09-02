@@ -1,4 +1,7 @@
 
+import _ from 'lodash/fp'
+import {color as d3Color} from 'd3-color'
+
 export const theme = {
   action: 'hsl(200, 0%, 50%)',
   background: 'white',
@@ -29,6 +32,18 @@ export const createCssObject = (theme) => {
   const marginVerticalHalf = {
     marginTop: gutter / 2,
     marginBottom: gutter / 2,
+  }
+  const paddingHorizontal = {
+    paddingLeft: gutter,
+    paddingRight: gutter,
+  }
+  const paddingVertical = {
+    paddingTop: gutter,
+    paddingBottom: gutter,
+  }
+  const paddingVerticalHalf = {
+    paddingTop: gutter / 2,
+    paddingBottom: gutter / 2,
   }
   return {
     default: {
@@ -314,6 +329,69 @@ export const createCssObject = (theme) => {
       borderColor: color,
       ...marginHorizontal,
       ...marginVertical,
+    },
+    Ul: {
+      ...marginHorizontal,
+      ...marginVertical,
+      marginLeft: gutter * 3,
+      listStylePosition: 'inside',
+    },
+    Ol: {
+      ...marginHorizontal,
+      ...marginVertical,
+      marginLeft: gutter * 3,
+      listStylePosition: 'inside',
+    },
+    Li: {
+      display: 'list-item',
+      color,
+      fontFamily,
+      fontSize,
+      lineHeight,
+    },
+    Table: {
+      width: '100%',
+      // tableLayout: 'fixed',
+      display: 'table',
+      ...marginVertical,
+      ...paddingHorizontal,
+      borderSpacing: 0,
+      color,
+      fontFamily,
+      fontSize,
+      lineHeight,
+      ' th:first-child,  td:first-child': {
+        paddingLeft: 0,
+      },
+      ' th:last-child,  td:last-child': {
+        paddingRight: 0,
+      },
+    },
+    THead: {
+      display: 'table-header-group',
+    },
+    TBody: {
+      display: 'table-row-group',
+    },
+    TR: {
+      display: 'table-row',
+    },
+    TH: {
+      display: 'table-cell',
+      textAlign: 'left',
+      ...paddingVerticalHalf,
+      ...paddingHorizontal,
+      borderBottomWidth: 1,
+      borderColor: _.set('opacity', 0.5, d3Color(theme.color)),
+    },
+    TD: {
+      display: 'table-cell',
+      textAlign: 'left',
+      ...paddingVerticalHalf,
+      ...paddingHorizontal,
+      verticalAlign: 'top',
+      borderTopWidth: theme.borderWidth,
+      borderColor: _.set('opacity', 0.5, d3Color(theme.color)),
     },
     A: {
       borderBottomWidth: theme.borderWidth,

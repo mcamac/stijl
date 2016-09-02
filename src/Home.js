@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-import {ui, theme as t} from './index'
+import {ui, theme} from './index'
 
 export default class Home extends React.Component {
   render() {
@@ -33,13 +33,80 @@ export default class Home extends React.Component {
         <ui.P>
           A peep at some distant orb has <ui.A H4 href='#'>reached a great height</ui.A> to raise and purify our thoughts like a strain of sacred music, or a noble picture, or a passage from the grander poets. It always does one good.
         </ui.P>
+        <ui.Span H2 marginVerticalZero>TEST</ui.Span>
         <ui.Blockquote>
           Farther related bed and passage comfort civilly. Dashwoods see frankness objection abilities the. As hastened oh produced prospect formerly up am.
         </ui.Blockquote>
-        <ui.Span H2 marginVerticalZero>TEST</ui.Span>
+        <ui.Table>
+          <ui.THead>
+            <ui.TR>
+              <ui.TH>Command</ui.TH>
+              <ui.TH>Description</ui.TH>
+            </ui.TR>
+          </ui.THead>
+          <ui.TBody>
+            <ui.TR>
+              <ui.TD>git status</ui.TD>
+              <ui.TD>List all new or modified files</ui.TD>
+            </ui.TR>
+            <ui.TR>
+              <ui.TD>git diff</ui.TD>
+              <ui.TD>Show file differences that haven&#39;t been staged</ui.TD>
+            </ui.TR>
+          </ui.TBody>
+        </ui.Table>
+        <ui.Col css={{overflow: 'scroll'}}>
+          <ui.Table>
+            <ui.THead>
+              <ui.TR>
+                <ui.TH>Command</ui.TH>
+                <ui.TH>Description</ui.TH>
+                <ui.TH>Description</ui.TH>
+                <ui.TH>Description</ui.TH>
+                <ui.TH>Description</ui.TH>
+                <ui.TH>Description</ui.TH>
+              </ui.TR>
+            </ui.THead>
+            <ui.TBody>
+              <ui.TR>
+                <ui.TD>git status</ui.TD>
+                <ui.TD>List all new or modified files</ui.TD>
+                <ui.TD>List all new or modified files</ui.TD>
+                <ui.TD>List all new or modified files</ui.TD>
+                <ui.TD>List all new or modified files</ui.TD>
+                <ui.TD>List all new or modified files</ui.TD>
+              </ui.TR>
+              <ui.TR>
+                <ui.TD>git diff</ui.TD>
+                <ui.TD>Show file differences that haven&#39;t been staged</ui.TD>
+                <ui.TD>Show file differences that haven&#39;t been staged</ui.TD>
+                <ui.TD>Show file differences that haven&#39;t been staged</ui.TD>
+                <ui.TD>Show file differences that haven&#39;t been staged</ui.TD>
+                <ui.TD>Show file differences that haven&#39;t been staged</ui.TD>
+              </ui.TR>
+            </ui.TBody>
+          </ui.Table>
+        </ui.Col>
         <ui.P>
           Fulfilled direction use continual set him propriety continued. Saw met applauded favourite deficient engrossed concealed and her. Concluded boy perpetual old supposing. Farther related bed and passage comfort civilly. Dashwoods see frankness objection abilities the. As hastened oh produced prospect formerly up am. Placing forming nay looking old married few has. Margaret disposed add screened rendered six say his striking confined.
         </ui.P>
+        <ui.Ul>
+          <ui.Li>Item 1</ui.Li>
+          <ui.Li>Item 2</ui.Li>
+          <ui.Ul>
+            <ui.Li>Fulfilled direction use continual set him propriety continued. Saw met applauded favourite deficient engrossed concealed and her.</ui.Li>
+            <ui.Li>Item 2</ui.Li>
+          </ui.Ul>
+          <ui.Li>Item 3</ui.Li>
+          <ui.Li>Item 4</ui.Li>
+        </ui.Ul>
+        <ui.P>
+          Fulfilled direction use continual set him propriety continued. Saw met applauded favourite deficient engrossed concealed and her. Concluded boy perpetual old supposing. Farther related bed and passage comfort civilly. Dashwoods see frankness objection abilities the. As hastened oh produced prospect formerly up am. Placing forming nay looking old married few has. Margaret disposed add screened rendered six say his striking confined.
+        </ui.P>
+        <ui.Ol>
+          <ui.Li>Item 1</ui.Li>
+          <ui.Li>Item 2</ui.Li>
+        </ui.Ol>
         <ui.Col marginVerticalHalf>
           <ui.Input placeholder='placeholder'/>
           <ui.Button>Click</ui.Button>
@@ -63,7 +130,7 @@ export default class Home extends React.Component {
         </ui.Col>
         <ui.Col margin padding
           css={{
-          background: t.backgroundCard,
+          background: theme.backgroundCard,
         }}>
           <ui.Col marginVerticalHalf>
             <ui.Input placeholder='placeholder'/>
