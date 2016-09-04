@@ -90,6 +90,7 @@ const stijlTags = [
   ['hr', 'Hr'],
   [RouterLink, 'Link'],
   [SmartLink, 'A'],
+  ['img', 'Img'],
   ['ul', 'Ul'],
   ['ol', 'Ol'],
   ['li', 'Li'],

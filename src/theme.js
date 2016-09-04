@@ -324,6 +324,11 @@ export const createCssObject = (theme) => {
       ...marginHorizontal,
       ...marginVertical,
     },
+    Img: {
+      ...marginHorizontal,
+      ...marginVertical,
+      width: '100%',
+    },
     Hr: {
       borderBottomWidth: theme.borderWidth,
       borderColor: color,

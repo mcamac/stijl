@@ -90,6 +90,7 @@ export default class Home extends React.Component {
         <ui.P>
           Fulfilled direction use continual set him propriety continued. Saw met applauded favourite deficient engrossed concealed and her. Concluded boy perpetual old supposing. Farther related bed and passage comfort civilly. Dashwoods see frankness objection abilities the. As hastened oh produced prospect formerly up am. Placing forming nay looking old married few has. Margaret disposed add screened rendered six say his striking confined.
         </ui.P>
+        <ui.Img src='https://s3.amazonaws.com/luiscarli.com/photo-2800/2016-08-27_L1000350.jpg'/>
         <ui.Ul>
           <ui.Li>Item 1</ui.Li>
           <ui.Li>Item 2</ui.Li>
