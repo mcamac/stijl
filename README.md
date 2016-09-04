@@ -36,7 +36,7 @@ class Home extends React.Component {
         css={{
           background: theme.backgroundCard,
           // it accepts css selectors, pseudo-classes and media-queries
-          '> p': {fontWeight: 'bold},
+          '> p': {fontWeight: 'bold'},
           ':hover': {background: color(theme.action).brighter(1)},
           '@media (max-width: 600px)': {background: 'blue'},
         }}
