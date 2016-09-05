@@ -3,6 +3,7 @@ import _ from 'lodash/fp'
 import {color as d3Color} from 'd3-color'
 
 export const theme = {
+  accent: 'steelblue',
   action: 'hsl(200, 0%, 50%)',
   background: 'white',
   backgroundCard: 'hsl(0, 0%, 94%)',
@@ -60,140 +61,6 @@ export const createCssObject = (theme) => {
       position: 'relative',
     },
 
-    margin: {
-      margin: `${gutter}px !important`,
-    },
-    marginAuto: {
-      margin: 'auto !important',
-    },
-    marginZero: {
-      margin: '0px !important',
-    },
-    marginHalf: {
-      margin: `${gutter / 2}px !important`,
-    },
-    marginDouble: {
-      margin: `${gutter * 2}px !important`,
-    },
-    marginHorizontal: {
-      marginLeft: `${gutter}px !important`,
-      marginRight: `${gutter}px !important`,
-    },
-    marginHorizontalAuto: {
-      marginLeft: 'auto !important',
-      marginRight: 'auto !important',
-    },
-    marginHorizontalZero: {
-      marginLeft: '0px !important',
-      marginRight: '0px !important',
-    },
-    marginHorizontalHalf: {
-      marginLeft: `${gutter / 2}px !important`,
-      marginRight: `${gutter / 2}px !important`,
-    },
-    marginHorizontalDouble: {
-      marginLeft: `${gutter * 2}px !important`,
-      marginRight: `${gutter * 2}px !important`,
-    },
-    negativeMarginHorizontal: {
-      marginLeft: `${-gutter}px !important`,
-      marginRight: `${-gutter}px !important`,
-    },
-    marginVertical: {
-      marginTop: `${gutter}px !important`,
-      marginBottom: `${gutter}px !important`,
-    },
-    marginVerticalAuto: {
-      marginTop: 'auto !important',
-      marginBottom: 'auto !important',
-    },
-    marginVerticalZero: {
-      marginTop: '0px !important',
-      marginBottom: '0px !important',
-    },
-    marginVerticalHalf: {
-      marginTop: `${gutter / 2}px !important`,
-      marginBottom: `${gutter / 2}px !important`,
-    },
-    marginVerticalDouble: {
-      marginTop: `${gutter * 2}px !important`,
-      marginBottom: `${gutter * 2}px !important`,
-    },
-    negativeMarginVertical: {
-      marginTop: `${-gutter}px !important`,
-      marginBottom: `${-gutter}px !important`,
-    },
-
-    padding: {
-      paddingLeft: `${gutter}px !important`,
-      paddingRight: `${gutter}px !important`,
-      paddingTop: `${gutter}px !important`,
-      paddingBottom: `${gutter}px !important`,
-    },
-    paddingZero: {
-      paddingLeft: '0px !important',
-      paddingRight: '0px !important',
-      paddingTop: '0px !important',
-      paddingBottom: '0px !important',
-    },
-    paddingHalf: {
-      paddingLeft: `${gutter / 2}px !important`,
-      paddingRight: `${gutter / 2}px !important`,
-      paddingTop: `${gutter / 2}px !important`,
-      paddingBottom: `${gutter / 2}px !important`,
-    },
-    paddingDouble: {
-      paddingLeft: `${gutter * 2}px !important`,
-      paddingRight: `${gutter * 2}px !important`,
-      paddingTop: `${gutter * 2}px !important`,
-      paddingBottom: `${gutter * 2}px !important`,
-    },
-    paddingHorizontal: {
-      paddingLeft: `${gutter}px !important`,
-      paddingRight: `${gutter}px !important`,
-    },
-    paddingHorizontalZero: {
-      paddingLeft: '0px !important',
-      paddingRight: '0px !important',
-    },
-    paddingHorizontalHalf: {
-      paddingLeft: `${gutter / 2}px !important`,
-      paddingRight: `${gutter / 2}px !important`,
-    },
-    paddingHorizontalDouble: {
-      paddingLeft: `${gutter * 2}px !important`,
-      paddingRight: `${gutter * 2}px !important`,
-    },
-    negativePaddingHorizontal: {
-      paddingLeft: `${-gutter}px !important`,
-      paddingRight: `${-gutter}px !important`,
-    },
-    paddingVertical: {
-      paddingTop: `${gutter}px !important`,
-      paddingBottom: `${gutter}px !important`,
-    },
-    paddingVerticalZero: {
-      paddingTop: '0px !important',
-      paddingBottom: '0px !important',
-    },
-    paddingVerticalHalf: {
-      paddingTop: `${gutter / 2}px !important`,
-      paddingBottom: `${gutter / 2}px !important`,
-    },
-    paddingVerticalDouble: {
-      paddingTop: `${gutter * 2}px !important`,
-      paddingBottom: `${gutter * 2}px !important`,
-    },
-    negativePaddingVertical: {
-      paddingTop: `${-gutter}px !important`,
-      paddingBottom: `${-gutter}px !important`,
-    },
-    flexGrow: {
-      flexGrow: 1,
-    },
-    flexShrink: {
-      flexShrink: 1,
-    },
     Space: {
       flexBasis: gutter,
     },
@@ -208,12 +75,20 @@ export const createCssObject = (theme) => {
     },
     Window: {
       background,
+      fontSize,
       fontFamily,
       color,
       minHeight: '100%',
     },
     Col: {
 
+    },
+    Row: {
+      flexDirection: 'row',
+    },
+    RowWrap: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
     },
     Span: {
       display: 'inline',
@@ -228,7 +103,10 @@ export const createCssObject = (theme) => {
       fontSize,
       lineHeight,
       overflow: 'auto',
-      padding: gutter * 2,
+      paddingLeft: gutter * 2,
+      paddingRight: gutter * 2,
+      paddingTop: gutter,
+      paddingBottom: gutter,
       '>code': {
         padding: 0,
       }
@@ -252,13 +130,6 @@ export const createCssObject = (theme) => {
       lineHeight,
       padding: gutter,
     },
-    Row: {
-      flexDirection: 'row',
-    },
-    RowWrap: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-    },
     H0: {
       ...marginHorizontal,
       ...marginVerticalHalf,
@@ -274,6 +145,7 @@ export const createCssObject = (theme) => {
       display: 'inline',
       fontFamily: fontFamilyDisplay,
       fontSize: scale[1],
+      fontWeight: 'normal',
     },
     H2: {
       ...marginHorizontal,
@@ -282,6 +154,7 @@ export const createCssObject = (theme) => {
       display: 'inline',
       fontFamily: fontFamilyDisplay,
       fontSize: scale[2],
+      fontWeight: 'normal',
     },
     H3: {
       ...marginHorizontal,
@@ -290,6 +163,7 @@ export const createCssObject = (theme) => {
       display: 'inline',
       fontFamily: fontFamilyDisplay,
       fontSize: scale[3],
+      fontWeight: 'normal',
     },
     H4: {
       ...marginHorizontal,
@@ -298,6 +172,7 @@ export const createCssObject = (theme) => {
       display: 'inline',
       fontFamily: fontFamilyDisplay,
       fontSize: scale[4],
+      fontWeight: 'normal',
     },
     H5: {
       ...marginHorizontal,
@@ -306,12 +181,14 @@ export const createCssObject = (theme) => {
       display: 'inline',
       fontFamily: fontFamilyDisplay,
       fontSize: scale[5],
+      fontWeight: 'normal',
     },
     H6: {
       color,
       display: 'inline',
       fontFamily: fontFamilyDisplay,
       fontSize: scale[6],
+      fontWeight: 'normal',
       ...marginHorizontal,
       ...marginVerticalHalf,
     },
@@ -468,6 +345,141 @@ export const createCssObject = (theme) => {
       WebkitAppearance: 'none',
       ...marginHorizontal,
       ...marginVerticalHalf,
+    },
+
+    margin: {
+      margin: gutter,
+    },
+    marginAuto: {
+      margin: 'auto',
+    },
+    marginZero: {
+      margin: 0,
+    },
+    marginHalf: {
+      margin: gutter / 2,
+    },
+    marginDouble: {
+      margin: gutter * 2,
+    },
+    marginHorizontal: {
+      marginLeft: gutter,
+      marginRight: gutter,
+    },
+    marginHorizontalAuto: {
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+    marginHorizontalZero: {
+      marginLeft: 0,
+      marginRight: 0,
+    },
+    marginHorizontalHalf: {
+      marginLeft: gutter / 2,
+      marginRight: gutter / 2,
+    },
+    marginHorizontalDouble: {
+      marginLeft: gutter * 2,
+      marginRight: gutter * 2,
+    },
+    negativeMarginHorizontal: {
+      marginLeft: -gutter,
+      marginRight: -gutter,
+    },
+    marginVertical: {
+      marginTop: gutter,
+      marginBottom: gutter,
+    },
+    marginVerticalAuto: {
+      marginTop: 'auto',
+      marginBottom: 'auto',
+    },
+    marginVerticalZero: {
+      marginTop: 0,
+      marginBottom: 0,
+    },
+    marginVerticalHalf: {
+      marginTop: gutter / 2,
+      marginBottom: gutter / 2,
+    },
+    marginVerticalDouble: {
+      marginTop: gutter * 2,
+      marginBottom: gutter * 2,
+    },
+    negativeMarginVertical: {
+      marginTop: -gutter,
+      marginBottom: -gutter,
+    },
+
+    padding: {
+      paddingLeft: gutter,
+      paddingRight: gutter,
+      paddingTop: gutter,
+      paddingBottom: gutter,
+    },
+    paddingZero: {
+      paddingLeft: 0,
+      paddingRight: 0,
+      paddingTop: 0,
+      paddingBottom: 0,
+    },
+    paddingHalf: {
+      paddingLeft: gutter / 2,
+      paddingRight: gutter / 2,
+      paddingTop: gutter / 2,
+      paddingBottom: gutter / 2,
+    },
+    paddingDouble: {
+      paddingLeft: gutter * 2,
+      paddingRight: gutter * 2,
+      paddingTop: gutter * 2,
+      paddingBottom: gutter * 2,
+    },
+    paddingHorizontal: {
+      paddingLeft: gutter,
+      paddingRight: gutter,
+    },
+    paddingHorizontalZero: {
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
+    paddingHorizontalHalf: {
+      paddingLeft: gutter / 2,
+      paddingRight: gutter / 2,
+    },
+    paddingHorizontalDouble: {
+      paddingLeft: gutter * 2,
+      paddingRight: gutter * 2,
+    },
+    negativePaddingHorizontal: {
+      paddingLeft: -gutter,
+      paddingRight: -gutter,
+    },
+    paddingVertical: {
+      paddingTop: gutter,
+      paddingBottom: gutter,
+    },
+    paddingVerticalZero: {
+      paddingTop: 0,
+      paddingBottom: 0,
+    },
+    paddingVerticalHalf: {
+      paddingTop: gutter / 2,
+      paddingBottom: gutter / 2,
+    },
+    paddingVerticalDouble: {
+      paddingTop: gutter * 2,
+      paddingBottom: gutter * 2,
+    },
+    negativePaddingVertical: {
+      paddingTop: -gutter,
+      paddingBottom: -gutter,
+    },
+    flexGrow: {
+      flexGrow: 1,
+    },
+    flexShrink: {
+      flexShrink: 1,
     },
   }
 }
