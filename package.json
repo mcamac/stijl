@@ -1,6 +1,6 @@
 {
   "name": "stijl",
-  "version": "0.10.5",
+  "version": "0.10.6",
   "description": "React UI Components",
   "repository": "https://github.com/luiscarli/stijl",
   "main": "lib/index.js",
