@@ -121,10 +121,11 @@ const stijlTags = [
 export const ui = {}
 stijlTags.forEach(d => ui[d[1]] = createStijlComponent(...d))
 
-export const componentHash = {}
+export const componentHash = {div: ui.Col}
 stijlTags.forEach(d => {
   if (d[0] === 'div' || !_.isString(d[0])) {
     componentHash[d[1]] = ui[d[1]]
+    return
   }
   componentHash[d[0]] = ui[d[1]]
 })
