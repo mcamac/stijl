@@ -48,5 +48,4 @@ export const start = (
       merge(ui, d.ui)
     }
   })
-  console.log(ui)
 }

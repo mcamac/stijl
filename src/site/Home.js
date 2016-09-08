@@ -1,10 +1,12 @@
 
 import React from 'react'
 
-import {ui, theme, componentHash} from '../index'
+import {componentHash} from '../index'
 
 import Window from './Window'
+/* eslint-disable */
 import components from 'md-to-react!./components.md'
+/* eslint-enable */
 import * as examples from './examples'
 
 const localHash = {

@@ -14,7 +14,9 @@
   "devDependencies": {
     "bates": "^3.0.1",
     "md-to-react": "^0.2.0",
+    "mocha": "^3.0.2",
     "react": "^15.3.0",
+    "react-dom": "^15.3.1",
     "react-router-scroll": "^0.3.0"
   },
   "dependencies": {
