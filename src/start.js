@@ -19,33 +19,34 @@ const getClassesFromCssObject = (cssObject) => {
 }
 
 export const start = (
-  themeExtensions = [], cssObjectExtensions = [], uiExtensions = []
+  extensions = []
 ) => {
   merge(theme, vanillaTheme)
-  themeExtensions.forEach(d => {
-    if (_.isFunction(d)) {
-      merge(theme, d(theme))
-      return
+  extensions.forEach(d => {
+    if (_.isFunction(d.theme)) {
+      merge(theme, d.theme(theme))
+    } else {
+      merge(theme, d.theme)
     }
-    merge(theme, d)
   })
 
   const cssObject = createCssObject(theme)
-  cssObjectExtensions.forEach(d => {
-    if (_.isFunction(d)) {
-      merge(cssObject, d(theme, cssObject))
-      return
+  extensions.forEach(d => {
+    if (_.isFunction(d.css)) {
+      merge(cssObject, d.css(theme, cssObject))
+    } else {
+      merge(cssObject, d.css)
     }
-    merge(cssObject, d)
   })
 
   merge(classNames, getClassesFromCssObject(cssObject))
 
-  uiExtensions.forEach(d => {
-    if (_.isFunction(d)) {
-      merge(ui, d(theme, cssObject, ui))
-      return
+  extensions.forEach(d => {
+    if (_.isFunction(d.ui)) {
+      merge(ui, d.ui(theme, cssObject, ui))
+    } else {
+      merge(ui, d.ui)
     }
-    merge(ui, d)
   })
+  console.log(ui)
 }
