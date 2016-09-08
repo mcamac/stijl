@@ -116,6 +116,7 @@ const stijlTags = [
   ['input', 'Input'],
   ['button', 'Button'],
   ['select', 'Select', true],
+  ['div', 'Card'],
 ]
 
 export const ui = {}

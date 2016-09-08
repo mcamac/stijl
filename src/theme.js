@@ -61,17 +61,17 @@ export const createCssObject = (theme) => {
       position: 'relative',
     },
 
-    Space: {
-      flexBasis: gutter,
-    },
     SpaceHalf: {
       flexBasis: gutter / 2,
+    },
+    Space: {
+      flexBasis: gutter,
     },
     SpaceDouble: {
       flexBasis: gutter * 2,
     },
     SpaceTriple: {
-      flexBasis: gutter * 2,
+      flexBasis: gutter * 3,
     },
     Window: {
       background,
@@ -124,7 +124,6 @@ export const createCssObject = (theme) => {
       borderColor: theme.backgroundCard,
       borderLeftWidth: gutter,
       color,
-      display: 'inline',
       fontFamily,
       fontSize,
       lineHeight,
@@ -204,7 +203,7 @@ export const createCssObject = (theme) => {
     Img: {
       ...marginHorizontal,
       ...marginVertical,
-      width: '100%',
+      maxWidth: '100%',
     },
     Hr: {
       borderBottomWidth: theme.borderWidth,
@@ -262,7 +261,7 @@ export const createCssObject = (theme) => {
       ...paddingVerticalHalf,
       ...paddingHorizontal,
       borderBottomWidth: 1,
-      borderColor: _.set('opacity', 0.5, d3Color(theme.color)),
+      borderColor: _.set('opacity', 0.5, d3Color(color)),
     },
     TD: {
       display: 'table-cell',
@@ -271,21 +270,18 @@ export const createCssObject = (theme) => {
       ...paddingHorizontal,
       verticalAlign: 'top',
       borderTopWidth: theme.borderWidth,
-      borderColor: _.set('opacity', 0.5, d3Color(theme.color)),
+      borderColor: _.set('opacity', 0.5, d3Color(color)),
     },
     A: {
-      borderBottomWidth: theme.borderWidth,
-      borderColor: theme.action,
       color: theme.action,
       display: 'inline',
-      textDecoration: 'none',
     },
     Link: {
       color: 'inherit',
       textDecoration: 'inherit',
     },
     Input: {
-      background: 'transparent',
+      background: _.set('opacity', 0.75, d3Color(theme.background)),
       borderColor: theme.action,
       borderRadius,
       borderWidth: theme.borderWidth,
@@ -316,7 +312,7 @@ export const createCssObject = (theme) => {
         width: Math.abs(fontSize / 2),
       },
       ' > select': {
-        background: 'transparent',
+        background: _.set('opacity', 0.75, d3Color(theme.background)),
         borderColor: theme.action,
         borderRadius,
         borderWidth: theme.borderWidth,
@@ -343,6 +339,11 @@ export const createCssObject = (theme) => {
       WebkitAppearance: 'none',
       ...marginHorizontal,
       ...marginVerticalHalf,
+    },
+    Card: {
+      margin: gutter,
+      padding: gutter,
+      background: theme.backgroundCard,
     },
 
     margin: {
