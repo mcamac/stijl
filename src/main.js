@@ -3,8 +3,6 @@
 // import 'whatwg-fetch'
 // import 'babel-regenerator-runtime'
 
-document.title = 'Stijl'
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Router, Route, browserHistory, IndexRoute, Redirect, applyRouterMiddleware} from 'react-router'
@@ -12,7 +10,10 @@ import {useScroll} from 'react-router-scroll'
 
 import {insertCssObject, start} from './index'
 
-import Home from './Home'
+import pkg from '../package.json'
+import Home from './site/Home'
+
+document.title = pkg.name
 
 insertCssObject({
   body: {background: 'white', minHeight: '100%', margin: 0},

@@ -1,11 +1,11 @@
 
 import React from 'react'
 
-import {ui, theme, componentHash} from './index'
+import {ui, theme, componentHash} from '../index'
 
-import Window from './site/Window'
-import components from 'md-to-react!./site/components.md'
-import * as examples from './site/examples'
+import Window from './Window'
+import components from 'md-to-react!./components.md'
+import * as examples from './examples'
 
 const localHash = {
   ...componentHash,

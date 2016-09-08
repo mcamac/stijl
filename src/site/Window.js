@@ -18,7 +18,7 @@ export class Header extends React.Component {
             opacity: 0.75,
           }}>{pkg.version}</ui.Span>
         </ui.Link>
-          {/* <ui.A key={i} href={`page/${d.path}`}>{d.title}</ui.A> */}
+          <ui.A marginHorizontal href='https://github.com/luiscarli/stijl'>github</ui.A>
       </ui.Row>
       <ui.SpaceDouble/>
     </ui.Col>
