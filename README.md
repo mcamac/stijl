@@ -18,14 +18,16 @@ import {color} from 'd3-color'
 
 // we will extend the default theme with a new
 // background and action colors
-const myTheme = {
-  background: 'lightgray',
-  action: 'steelblue',
+const myExtension = {
+  theme: {
+    background: 'lightgray',
+    action: 'steelblue',
+  }
 }
 
 // Before using any component, run `start()`
 // pass any extensions here
-start([myTheme])
+start([myExtension])
 
 class Home extends React.Component {
   render() {
@@ -60,7 +62,7 @@ class Home extends React.Component {
 
 ## Named Exports
 
-### `start(themeExtensions: ?Array<Object>, cssObjectExtensions: ?Array<Object>, uiExtensions: ?Array<Object>)`
+### `start(extensions: ?Array<{theme: ?Object|Function, css: ?Object|Function, ui: ?Object|Function}>)`
 
 Before using the UI components, call `start()` with any extensions you want to apply. More Info: [Extensions tutorial](/)
 
