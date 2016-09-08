@@ -14,7 +14,7 @@
   "devDependencies": {
     "babel-loader": "^6.2.4",
     "bates": "^3.0.1",
-    "md-to-react": "^0.1.1",
+    "md-to-react": "^0.2.0",
     "react": "^15.3.0",
     "react-router-scroll": "^0.3.0"
   },
