@@ -2,7 +2,6 @@
 import React from 'react'
 import _ from 'lodash/fp'
 import cn from 'classnames'
-import {Link as RouterLink} from 'react-router'
 
 import {getClassName} from './styleSheet'
 import {classNames} from './start'
@@ -25,7 +24,7 @@ const propsToOmit = [
   'H0', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6',
 ]
 
-export const createStijlComponent = (tag, name, wrapped) =>
+export const createStijlComponent = (tag, name) =>
   class Stijl extends React.Component {
     static displayName = name
     render() {
@@ -46,15 +45,6 @@ export const createStijlComponent = (tag, name, wrapped) =>
         ..._.omit(propsToOmit, props),
         className,
       }
-      if (wrapped) {
-        return <div className={className}>
-          {React.createElement(
-            tag,
-            _.omit(propsToOmit, props),
-            props.children,
-          )}
-        </div>
-      }
       return React.createElement(
         tag,
         passDownProps,
@@ -62,21 +52,6 @@ export const createStijlComponent = (tag, name, wrapped) =>
       )
     }
   }
-
-const A = createStijlComponent('a', 'A')
-const Link = createStijlComponent(RouterLink, 'A')
-
-const SmartLink = (props) => {
-  if (props.href && /^http/.test(props.href)) {
-    return <A {...props}/>
-  }
-  if (props.href && !/^http/.test(props.href)) {
-    return <Link {..._.omit('href', props)}
-      to={props.href}
-    />
-  }
-  return <A {...props}/>
-}
 
 const stijlTags = [
   ['div', 'H0'],
@@ -88,9 +63,8 @@ const stijlTags = [
   ['h6', 'H6'],
   ['p', 'P'],
   ['hr', 'Hr'],
-  [RouterLink, 'Link'],
-  [SmartLink, 'A'],
   ['img', 'Img'],
+  ['a', 'A'],
   ['ul', 'Ul'],
   ['ol', 'Ol'],
   ['li', 'Li'],
@@ -115,7 +89,7 @@ const stijlTags = [
   ['input', 'Form'],
   ['input', 'Input'],
   ['button', 'Button'],
-  ['select', 'Select', true],
+  ['select', 'Select'],
   ['div', 'Card'],
 ]
 

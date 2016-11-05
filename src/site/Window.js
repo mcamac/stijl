@@ -1,6 +1,6 @@
 
 import React from 'react'
-import {ui} from '../index'
+import {ui, theme} from '../index'
 
 import pkg from '../../package.json'
 
@@ -11,13 +11,16 @@ export class Header extends React.Component {
         justifyContent: 'space-between',
         alignItems: 'baseline',
       }}>
-        <ui.Link H1 to='/'>
+        <ui.A H1 href='/' css={{
+          textDecoration: 'none',
+          color: theme.color,
+        }}>
           {pkg.name}
           <ui.Span paddingHorizontalHalf H4 css={{
             verticalAlign: 'super',
             opacity: 0.75,
           }}>{pkg.version}</ui.Span>
-        </ui.Link>
+        </ui.A>
           <ui.A marginHorizontal href='https://github.com/luiscarli/stijl'>github</ui.A>
       </ui.Row>
       <ui.SpaceDouble/>

@@ -343,4 +343,14 @@ Components for adding spaces between your rows and columns. They use `flexBasis`
   </select>
 </wrapper>
 
+<wrapper>
+  <rowWrap>
+    <input placeholder='add text' flexGrow/>
+    <select>
+      <option>option 1</option>
+      <option>option 2</option>
+    </select>
+  </rowWrap>
+</wrapper>
+
 ## ui.Span, ui.Form
