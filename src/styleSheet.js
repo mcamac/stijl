@@ -1,6 +1,6 @@
 
 import _ from 'lodash/fp'
-import {createMarkupForStyles} from 'react/lib/CSSPropertyOperations'
+import {createMarkupForStyles} from 'react-dom/lib/CSSPropertyOperations'
 
 const getSheet = () => {
   if (!global.document) return {
